@@ -5,9 +5,6 @@ import {connect} from 'react-redux';
 
 import {
     openSpriteLibrary,
-    closeBackdropLibrary,
-    closeCostumeLibrary,
-    closeSoundLibrary,
     closeSpriteLibrary
 } from '../reducers/modals';
 
@@ -24,6 +21,7 @@ class TargetPane extends React.Component {
             'handleChangeSpriteX',
             'handleChangeSpriteY',
             'handleDeleteSprite',
+            'handleDuplicateSprite',
             'handleSelectSprite'
         ]);
     }
@@ -48,6 +46,9 @@ class TargetPane extends React.Component {
     handleDeleteSprite (id) {
         this.props.vm.deleteSprite(id);
     }
+    handleDuplicateSprite (id) {
+        this.props.vm.duplicateSprite(id);
+    }
     handleSelectSprite (id) {
         this.props.vm.setEditingTarget(id);
     }
@@ -62,6 +63,7 @@ class TargetPane extends React.Component {
                 onChangeSpriteX={this.handleChangeSpriteX}
                 onChangeSpriteY={this.handleChangeSpriteY}
                 onDeleteSprite={this.handleDeleteSprite}
+                onDuplicateSprite={this.handleDuplicateSprite}
                 onSelectSprite={this.handleSelectSprite}
             />
         );
@@ -88,24 +90,12 @@ const mapStateToProps = state => ({
         return sprites;
     }, {}),
     stage: state.targets.stage,
-    soundLibraryVisible: state.modals.soundLibrary,
-    spriteLibraryVisible: state.modals.spriteLibrary,
-    costumeLibraryVisible: state.modals.costumeLibrary,
-    backdropLibraryVisible: state.modals.backdropLibrary
+    spriteLibraryVisible: state.modals.spriteLibrary
 });
 const mapDispatchToProps = dispatch => ({
     onNewSpriteClick: e => {
         e.preventDefault();
         dispatch(openSpriteLibrary());
-    },
-    onRequestCloseBackdropLibrary: () => {
-        dispatch(closeBackdropLibrary());
-    },
-    onRequestCloseCostumeLibrary: () => {
-        dispatch(closeCostumeLibrary());
-    },
-    onRequestCloseSoundLibrary: () => {
-        dispatch(closeSoundLibrary());
     },
     onRequestCloseSpriteLibrary: () => {
         dispatch(closeSpriteLibrary());

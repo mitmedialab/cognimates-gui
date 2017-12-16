@@ -22,9 +22,8 @@ class SoundLibrary extends React.PureComponent {
         this.audioEngine = new AudioEngine();
         this.player = this.audioEngine.createPlayer();
     }
-    componentWillReceiveProps (newProps) {
-        // Stop playing sounds if the library closes without a mouseleave (e.g. by using the escape key)
-        if (this.player && !newProps.visible) this.player.stopAllSounds();
+    componentWillUnmount () {
+        this.player.stopAllSounds();
     }
     handleItemMouseEnter (soundItem) {
         const md5ext = soundItem._md5;
@@ -56,7 +55,9 @@ class SoundLibrary extends React.PureComponent {
             sampleCount: soundItem.sampleCount,
             name: soundItem.name
         };
-        this.props.vm.addSound(vmSound);
+        this.props.vm.addSound(vmSound).then(() => {
+            this.props.onNewSound();
+        });
     }
     render () {
         // @todo need to use this hack to avoid library using md5 for image
@@ -76,7 +77,6 @@ class SoundLibrary extends React.PureComponent {
             <LibraryComponent
                 data={soundLibraryThumbnailData}
                 title="Sound Library"
-                visible={this.props.visible}
                 onItemMouseEnter={this.handleItemMouseEnter}
                 onItemMouseLeave={this.handleItemMouseLeave}
                 onItemSelected={this.handleItemSelected}
@@ -87,8 +87,8 @@ class SoundLibrary extends React.PureComponent {
 }
 
 SoundLibrary.propTypes = {
+    onNewSound: PropTypes.func.isRequired,
     onRequestClose: PropTypes.func,
-    visible: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired
 };
 

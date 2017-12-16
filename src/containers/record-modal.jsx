@@ -89,8 +89,10 @@ class RecordModal extends React.Component {
                     md5
                 );
 
-                this.props.vm.addSound(vmSound);
-                this.handleCancel();
+                this.props.vm.addSound(vmSound).then(() => {
+                    this.props.onClose();
+                    this.props.onNewSound();
+                });
             });
         });
     }
@@ -126,11 +128,11 @@ class RecordModal extends React.Component {
 
 RecordModal.propTypes = {
     onClose: PropTypes.func,
+    onNewSound: PropTypes.func,
     vm: PropTypes.instanceOf(VM)
 };
 
 const mapStateToProps = state => ({
-    visible: state.modals.soundRecorder,
     vm: state.vm
 });
 

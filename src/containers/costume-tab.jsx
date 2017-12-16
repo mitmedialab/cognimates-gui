@@ -6,10 +6,14 @@ import VM from 'scratch-vm';
 
 import AssetPanel from '../components/asset-panel/asset-panel.jsx';
 import addCostumeIcon from '../components/asset-panel/icon--add-costume-lib.svg';
-
+import PaintEditorWrapper from './paint-editor-wrapper.jsx';
+import CostumeLibrary from './costume-library.jsx';
+import BackdropLibrary from './backdrop-library.jsx';
 import {connect} from 'react-redux';
 
 import {
+    closeCostumeLibrary,
+    closeBackdropLibrary,
     openCostumeLibrary,
     openBackdropLibrary
 } from '../reducers/modals';
@@ -19,7 +23,8 @@ class CostumeTab extends React.Component {
         super(props);
         bindAll(this, [
             'handleSelectCostume',
-            'handleDeleteCostume'
+            'handleDeleteCostume',
+            'handleNewCostume'
         ]);
         this.state = {selectedCostumeIndex: 0};
     }
@@ -46,14 +51,30 @@ class CostumeTab extends React.Component {
         this.props.vm.deleteCostume(costumeIndex);
     }
 
+    handleNewCostume () {
+        if (!this.props.vm.editingTarget) return;
+        const costumes = this.props.vm.editingTarget.sprite.costumes || [];
+        this.setState({selectedCostumeIndex: Math.max(costumes.length - 1, 0)});
+    }
+
     render () {
+        // For paint wrapper
+        const {
+            onNewBackdropClick,
+            onNewCostumeClick,
+            costumeLibraryVisible,
+            backdropLibraryVisible,
+            onRequestCloseCostumeLibrary,
+            onRequestCloseBackdropLibrary,
+            ...props
+        } = this.props;
+
         const {
             editingTarget,
             sprites,
             stage,
-            onNewCostumeClick,
-            onNewBackdropClick
-        } = this.props;
+            vm
+        } = props;
 
         const target = editingTarget && sprites[editingTarget] ? sprites[editingTarget] : stage;
 
@@ -65,14 +86,14 @@ class CostumeTab extends React.Component {
             <FormattedMessage
                 defaultMessage="Add Backdrop"
                 description="Button to add a backdrop in the editor tab"
-                id="action.addBackdrop"
+                id="gui.costumeTab.addBackdrop"
             />
         );
         const addCostumeMsg = (
             <FormattedMessage
                 defaultMessage="Add Costume"
                 description="Button to add a costume in the editor tab"
-                id="action.addCostume"
+                id="gui.costumeTab.addCostume"
             />
         );
 
@@ -90,15 +111,41 @@ class CostumeTab extends React.Component {
                 selectedItemIndex={this.state.selectedCostumeIndex}
                 onDeleteClick={this.handleDeleteCostume}
                 onItemClick={this.handleSelectCostume}
-            />
+            >
+                {target.costumes ?
+                    <PaintEditorWrapper
+                        {...props}
+                        selectedCostumeIndex={this.state.selectedCostumeIndex}
+                    /> :
+                    null
+                }
+                {costumeLibraryVisible ? (
+                    <CostumeLibrary
+                        vm={vm}
+                        onNewCostume={this.handleNewCostume}
+                        onRequestClose={onRequestCloseCostumeLibrary}
+                    />
+                ) : null}
+                {backdropLibraryVisible ? (
+                    <BackdropLibrary
+                        vm={vm}
+                        onNewBackdrop={this.handleNewCostume}
+                        onRequestClose={onRequestCloseBackdropLibrary}
+                    />
+                ) : null}
+            </AssetPanel>
         );
     }
 }
 
 CostumeTab.propTypes = {
+    backdropLibraryVisible: PropTypes.bool,
+    costumeLibraryVisible: PropTypes.bool,
     editingTarget: PropTypes.string,
     onNewBackdropClick: PropTypes.func.isRequired,
     onNewCostumeClick: PropTypes.func.isRequired,
+    onRequestCloseBackdropLibrary: PropTypes.func.isRequired,
+    onRequestCloseCostumeLibrary: PropTypes.func.isRequired,
     sprites: PropTypes.shape({
         id: PropTypes.shape({
             costumes: PropTypes.arrayOf(PropTypes.shape({
@@ -131,6 +178,12 @@ const mapDispatchToProps = dispatch => ({
     onNewCostumeClick: e => {
         e.preventDefault();
         dispatch(openCostumeLibrary());
+    },
+    onRequestCloseBackdropLibrary: () => {
+        dispatch(closeBackdropLibrary());
+    },
+    onRequestCloseCostumeLibrary: () => {
+        dispatch(closeCostumeLibrary());
     }
 });
 
