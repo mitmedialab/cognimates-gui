@@ -15,5 +15,12 @@ export default [
         iconURL: penImage,
         description: 'Draw with your sprites.',
         featured: true
+    },
+    {
+        name: 'alexa',
+        extensionURL: 'alexa',
+        iconURL: penImage,
+        description: 'Alexa.',
+        featured: true
     }
 ];
