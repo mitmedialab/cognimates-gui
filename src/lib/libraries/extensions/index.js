@@ -30,7 +30,7 @@ export default [
     },
     {
         name: 'Jibo',
-        extensionURL: 'alexa',
+        extensionURL: 'jibo',
         iconURL: jiboImage,
         description: 'Control Jibo robot.',
         featured: true
