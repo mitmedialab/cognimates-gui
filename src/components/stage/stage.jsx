@@ -6,6 +6,7 @@ import Box from '../box/box.jsx';
 import Loupe from '../loupe/loupe.jsx';
 import MonitorList from '../../containers/monitor-list.jsx';
 import Question from '../../containers/question.jsx';
+import {getStageSize} from '../../lib/screen-utils.js';
 import styles from './stage.css';
 
 const StageComponent = props => {
@@ -13,7 +14,7 @@ const StageComponent = props => {
         canvasRef,
         height,
         isColorPicking,
-        isZoomed,
+        isFullScreen,
         width,
         colorInfo,
         onDeactivateColorPicker,
@@ -22,36 +23,26 @@ const StageComponent = props => {
         ...boxProps
     } = props;
 
-    let heightCorrectedAspect = height;
-    let widthCorrectedAspect = width;
-    const spacingBorderAdjustment = 9;
-    const stageMenuHeightAdjustment = 40;
-    if (isZoomed) {
-        heightCorrectedAspect = window.innerHeight - stageMenuHeightAdjustment - spacingBorderAdjustment;
-        widthCorrectedAspect = heightCorrectedAspect + (heightCorrectedAspect / 3);
-        if (widthCorrectedAspect > window.innerWidth) {
-            widthCorrectedAspect = window.innerWidth;
-            heightCorrectedAspect = widthCorrectedAspect * .75;
-        }
-    }
+    const stageSize = getStageSize(isFullScreen, height, width);
+    
     return (
         <div>
             <Box
                 className={classNames({
-                    [styles.stageWrapper]: !isZoomed,
-                    [styles.stageWrapperOverlay]: isZoomed,
-                    [styles.withColorPicker]: !isZoomed && isColorPicking
+                    [styles.stageWrapper]: !isFullScreen,
+                    [styles.stageWrapperOverlay]: isFullScreen,
+                    [styles.withColorPicker]: !isFullScreen && isColorPicking
                 })}
             >
                 <Box
                     className={classNames(
                         styles.stage,
-                        {[styles.stageOverlayContent]: isZoomed}
+                        {[styles.stageOverlayContent]: isFullScreen}
                     )}
                     componentRef={canvasRef}
                     element="canvas"
-                    height={heightCorrectedAspect}
-                    width={widthCorrectedAspect}
+                    height={stageSize.height}
+                    width={stageSize.width}
                     {...boxProps}
                 />
                 <Box className={styles.monitorWrapper}>
@@ -71,7 +62,7 @@ const StageComponent = props => {
                     >
                         <div
                             className={styles.questionWrapper}
-                            style={{width: widthCorrectedAspect}}
+                            style={{width: stageSize.width}}
                         >
                             <Question
                                 question={question}
@@ -95,7 +86,7 @@ StageComponent.propTypes = {
     colorInfo: Loupe.propTypes.colorInfo,
     height: PropTypes.number,
     isColorPicking: PropTypes.bool,
-    isZoomed: PropTypes.bool.isRequired,
+    isFullScreen: PropTypes.bool.isRequired,
     onDeactivateColorPicker: PropTypes.func,
     onQuestionAnswered: PropTypes.func,
     question: PropTypes.string,

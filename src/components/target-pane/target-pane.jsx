@@ -4,7 +4,7 @@ import React from 'react';
 import VM from 'scratch-vm';
 
 import SpriteLibrary from '../../containers/sprite-library.jsx';
-
+import BackdropLibrary from '../../containers/backdrop-library.jsx';
 import SpriteSelectorComponent from '../sprite-selector/sprite-selector.jsx';
 import StageSelector from '../../containers/stage-selector.jsx';
 
@@ -17,11 +17,12 @@ import styles from './target-pane.css';
  * @returns {React.Component} rendered component
  */
 const TargetPane = ({
+    backdropLibraryVisible,
     editingTarget,
     spriteLibraryVisible,
     onChangeSpriteDirection,
     onChangeSpriteName,
-    onChangeSpriteRotationStyle,
+    onChangeSpriteSize,
     onChangeSpriteVisibility,
     onChangeSpriteX,
     onChangeSpriteY,
@@ -29,6 +30,7 @@ const TargetPane = ({
     onDuplicateSprite,
     onNewSpriteClick,
     onRequestCloseSpriteLibrary,
+    onRequestCloseBackdropLibrary,
     onSelectSprite,
     stage,
     sprites,
@@ -45,7 +47,7 @@ const TargetPane = ({
             sprites={sprites}
             onChangeSpriteDirection={onChangeSpriteDirection}
             onChangeSpriteName={onChangeSpriteName}
-            onChangeSpriteRotationStyle={onChangeSpriteRotationStyle}
+            onChangeSpriteSize={onChangeSpriteSize}
             onChangeSpriteVisibility={onChangeSpriteVisibility}
             onChangeSpriteX={onChangeSpriteX}
             onChangeSpriteY={onChangeSpriteY}
@@ -72,6 +74,12 @@ const TargetPane = ({
                         onRequestClose={onRequestCloseSpriteLibrary}
                     />
                 ) : null}
+                {backdropLibraryVisible ? (
+                    <BackdropLibrary
+                        vm={vm}
+                        onRequestClose={onRequestCloseBackdropLibrary}
+                    />
+                ) : null}
             </div>
         </div>
     </div>
@@ -89,24 +97,26 @@ const spriteShape = PropTypes.shape({
     id: PropTypes.string,
     name: PropTypes.string,
     order: PropTypes.number,
-    rotationStyle: PropTypes.string,
+    size: PropTypes.number,
     visibility: PropTypes.bool,
     x: PropTypes.number,
     y: PropTypes.number
 });
 
 TargetPane.propTypes = {
+    backdropLibraryVisible: PropTypes.bool,
     editingTarget: PropTypes.string,
     extensionLibraryVisible: PropTypes.bool,
     onChangeSpriteDirection: PropTypes.func,
     onChangeSpriteName: PropTypes.func,
-    onChangeSpriteRotationStyle: PropTypes.func,
+    onChangeSpriteSize: PropTypes.func,
     onChangeSpriteVisibility: PropTypes.func,
     onChangeSpriteX: PropTypes.func,
     onChangeSpriteY: PropTypes.func,
     onDeleteSprite: PropTypes.func,
     onDuplicateSprite: PropTypes.func,
     onNewSpriteClick: PropTypes.func,
+    onRequestCloseBackdropLibrary: PropTypes.func,
     onRequestCloseExtensionLibrary: PropTypes.func,
     onRequestCloseSpriteLibrary: PropTypes.func,
     onSelectSprite: PropTypes.func,

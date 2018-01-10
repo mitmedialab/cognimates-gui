@@ -57,7 +57,7 @@ class Stage extends React.Component {
             this.props.height !== nextProps.height ||
             this.props.isColorPicking !== nextProps.isColorPicking ||
             this.state.colorInfo !== nextState.colorInfo ||
-            this.props.isZoomed !== nextProps.isZoomed ||
+            this.props.isFullScreen !== nextProps.isFullScreen ||
             this.state.question !== nextState.question;
     }
     componentDidUpdate (prevProps) {
@@ -195,7 +195,7 @@ class Stage extends React.Component {
         this.updateRect();
         const {x, y} = getEventXY(e);
         const mousePosition = [x - this.rect.left, y - this.rect.top];
-        if (e.button === 0) {
+        if (e.button === 0 || e instanceof TouchEvent) {
             this.setState({
                 mouseDown: true,
                 mouseDownPosition: mousePosition,
@@ -279,7 +279,7 @@ class Stage extends React.Component {
 Stage.propTypes = {
     height: PropTypes.number,
     isColorPicking: PropTypes.bool,
-    isZoomed: PropTypes.bool,
+    isFullScreen: PropTypes.bool.isRequired,
     onActivateColorPicker: PropTypes.func,
     onDeactivateColorPicker: PropTypes.func,
     vm: PropTypes.instanceOf(VM).isRequired,
@@ -288,7 +288,7 @@ Stage.propTypes = {
 
 const mapStateToProps = state => ({
     isColorPicking: state.colorPicker.active,
-    isZoomed: state.isZoomed
+    isFullScreen: state.stageSize.isFullScreen
 });
 
 const mapDispatchToProps = dispatch => ({

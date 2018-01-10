@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 
 import {
     openSpriteLibrary,
+    closeBackdropLibrary,
     closeSpriteLibrary
 } from '../reducers/modals';
 
@@ -16,7 +17,7 @@ class TargetPane extends React.Component {
         bindAll(this, [
             'handleChangeSpriteDirection',
             'handleChangeSpriteName',
-            'handleChangeSpriteRotationStyle',
+            'handleChangeSpriteSize',
             'handleChangeSpriteVisibility',
             'handleChangeSpriteX',
             'handleChangeSpriteY',
@@ -31,8 +32,8 @@ class TargetPane extends React.Component {
     handleChangeSpriteName (name) {
         this.props.vm.renameSprite(this.props.editingTarget, name);
     }
-    handleChangeSpriteRotationStyle (rotationStyle) {
-        this.props.vm.postSpriteInfo({rotationStyle});
+    handleChangeSpriteSize (size) {
+        this.props.vm.postSpriteInfo({size});
     }
     handleChangeSpriteVisibility (visible) {
         this.props.vm.postSpriteInfo({visible});
@@ -58,7 +59,7 @@ class TargetPane extends React.Component {
                 {...this.props}
                 onChangeSpriteDirection={this.handleChangeSpriteDirection}
                 onChangeSpriteName={this.handleChangeSpriteName}
-                onChangeSpriteRotationStyle={this.handleChangeSpriteRotationStyle}
+                onChangeSpriteSize={this.handleChangeSpriteSize}
                 onChangeSpriteVisibility={this.handleChangeSpriteVisibility}
                 onChangeSpriteX={this.handleChangeSpriteX}
                 onChangeSpriteY={this.handleChangeSpriteY}
@@ -82,15 +83,17 @@ TargetPane.propTypes = {
 const mapStateToProps = state => ({
     editingTarget: state.targets.editingTarget,
     sprites: Object.keys(state.targets.sprites).reduce((sprites, k) => {
-        let {direction, x, y, ...sprite} = state.targets.sprites[k];
+        let {direction, size, x, y, ...sprite} = state.targets.sprites[k];
         if (typeof direction !== 'undefined') direction = Math.round(direction);
         if (typeof x !== 'undefined') x = Math.round(x);
         if (typeof y !== 'undefined') y = Math.round(y);
-        sprites[k] = {...sprite, direction, x, y};
+        if (typeof size !== 'undefined') size = Math.round(size);
+        sprites[k] = {...sprite, direction, size, x, y};
         return sprites;
     }, {}),
     stage: state.targets.stage,
-    spriteLibraryVisible: state.modals.spriteLibrary
+    spriteLibraryVisible: state.modals.spriteLibrary,
+    backdropLibraryVisible: state.modals.backdropLibrary
 });
 const mapDispatchToProps = dispatch => ({
     onNewSpriteClick: e => {
@@ -99,6 +102,9 @@ const mapDispatchToProps = dispatch => ({
     },
     onRequestCloseSpriteLibrary: () => {
         dispatch(closeSpriteLibrary());
+    },
+    onRequestCloseBackdropLibrary: () => {
+        dispatch(closeBackdropLibrary());
     }
 });
 
