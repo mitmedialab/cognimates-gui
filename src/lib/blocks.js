@@ -29,19 +29,25 @@ export default function (vm) {
     };
 
     const soundsMenu = function () {
-        const sounds = vm.editingTarget.sprite.sounds;
-        if (sounds.length === 0) {
-            return [['', '']];
+        if (vm.editingTarget && vm.editingTarget.sprite.sounds.length > 0) {
+            return vm.editingTarget.sprite.sounds.map(sound => [sound.name, sound.name]);
         }
-        return sounds.map(sound => [sound.name, sound.name]);
+        return [['', '']];
     };
 
     const costumesMenu = function () {
-        return vm.editingTarget.sprite.costumes.map(costume => [costume.name, costume.name]);
+        if (vm.editingTarget && vm.editingTarget.sprite.costumes.length > 0) {
+            return vm.editingTarget.sprite.costumes.map(costume => [costume.name, costume.name]);
+        }
+        return [['', '']];
     };
 
     const backdropsMenu = function () {
-        return vm.runtime.targets[0].sprite.costumes.map(costume => [costume.name, costume.name]);
+        if (vm.runtime.targets[0] && vm.runtime.targets[0].sprite.costumes.length > 0) {
+            return vm.runtime.targets[0].sprite.costumes.map(costume => [costume.name, costume.name])
+                .concat([['next backdrop', 'next backdrop'], ['previous backdrop', 'previous backdrop']]);
+        }
+        return [['', '']];
     };
 
     const spriteMenu = function () {
@@ -58,6 +64,17 @@ export default function (vm) {
             }
         }
         return sprites;
+    };
+
+    const cloneMenu = function () {
+        if (vm.editingTarget && vm.editingTarget.isStage) {
+            const menu = spriteMenu();
+            if (menu.length === 0) {
+                return [['', '']]; // Empty menu matches Scratch 2 behavior
+            }
+            return menu;
+        }
+        return [['myself', '_myself_']].concat(spriteMenu());
     };
 
     const soundColors = ScratchBlocks.Colours.sounds;
@@ -94,8 +111,16 @@ export default function (vm) {
 
     ScratchBlocks.Blocks.motion_goto_menu.init = function () {
         const json = jsonForMenuBlock('TO', spriteMenu, motionColors, [
-            ['mouse-pointer', '_mouse_'],
-            ['random position', '_random_']
+            ['random position', '_random_'],
+            ['mouse-pointer', '_mouse_']
+        ]);
+        this.jsonInit(json);
+    };
+
+    ScratchBlocks.Blocks.motion_glideto_menu.init = function () {
+        const json = jsonForMenuBlock('TO', spriteMenu, motionColors, [
+            ['random position', '_random_'],
+            ['mouse-pointer', '_mouse_']
         ]);
         this.jsonInit(json);
     };
@@ -130,9 +155,7 @@ export default function (vm) {
     };
 
     ScratchBlocks.Blocks.control_create_clone_of_menu.init = function () {
-        const json = jsonForMenuBlock('CLONE_OPTION', spriteMenu, controlColors, [
-            ['myself', '_myself_']
-        ]);
+        const json = jsonForMenuBlock('CLONE_OPTION', cloneMenu, controlColors, []);
         this.jsonInit(json);
     };
 

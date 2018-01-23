@@ -3,27 +3,45 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import MediaQuery from 'react-responsive';
+import {FormattedMessage} from 'react-intl';
 import tabStyles from 'react-tabs/style/react-tabs.css';
 import VM from 'scratch-vm';
 
 import Blocks from '../../containers/blocks.jsx';
 import CostumeTab from '../../containers/costume-tab.jsx';
-import Controls from '../../containers/controls.jsx';
 import TargetPane from '../../containers/target-pane.jsx';
 import SoundTab from '../../containers/sound-tab.jsx';
+import StageHeader from '../../containers/stage-header.jsx';
 import Stage from '../../containers/stage.jsx';
 
 import Box from '../box/box.jsx';
+import FeedbackForm from '../feedback-form/feedback-form.jsx';
+import IconButton from '../icon-button/icon-button.jsx';
 import MenuBar from '../menu-bar/menu-bar.jsx';
+import PreviewModal from '../../containers/preview-modal.jsx';
+import WebGlModal from '../../containers/webgl-modal.jsx';
 
 import layout from '../../lib/layout-constants.js';
 import styles from './gui.css';
+import addExtensionIcon from './icon--extensions.svg';
+
+const addExtensionMessage = (
+    <FormattedMessage
+        defaultMessage="Extensions"
+        description="Button to add an extension in the target pane"
+        id="gui.gui.addExtension"
+    />
+);
 
 const GUIComponent = props => {
     const {
         basePath,
         children,
+        enableExtensions,
+        feedbackFormVisible,
         vm,
+        previewInfoVisible,
+        onExtensionButtonClick,
         onTabSelect,
         tabIndex,
         ...componentProps
@@ -50,6 +68,13 @@ const GUIComponent = props => {
             className={styles.pageWrapper}
             {...componentProps}
         >
+            {previewInfoVisible ? (
+                <PreviewModal />
+            ) : null}
+            {feedbackFormVisible ? (
+                <FeedbackForm />
+            ) : null}
+            {(window.WebGLRenderingContext) ? null : (<WebGlModal />)}
             <MenuBar />
             <Box className={styles.bodyWrapper}>
                 <Box className={styles.flexWrapper}>
@@ -77,19 +102,29 @@ const GUIComponent = props => {
                                         vm={vm}
                                     />
                                 </Box>
+                                <Box className={styles.extensionButtonContainer}>
+                                    <IconButton
+                                        className={classNames(styles.extensionButton, {
+                                            [styles.hidden]: !enableExtensions
+                                        })}
+                                        img={addExtensionIcon}
+                                        title={addExtensionMessage}
+                                        onClick={onExtensionButtonClick}
+                                    />
+                                </Box>
                             </TabPanel>
                             <TabPanel className={tabClassNames.tabPanel}>
-                                <CostumeTab vm={vm} />
+                                {tabIndex === 1 ? <CostumeTab vm={vm} /> : null}
                             </TabPanel>
                             <TabPanel className={tabClassNames.tabPanel}>
-                                <SoundTab vm={vm} />
+                                {tabIndex === 2 ? <SoundTab vm={vm} /> : null}
                             </TabPanel>
                         </Tabs>
                     </Box>
 
                     <Box className={styles.stageAndTargetWrapper}>
                         <Box className={styles.stageMenuWrapper}>
-                            <Controls vm={vm} />
+                            <StageHeader vm={vm} />
                         </Box>
                         <Box className={styles.stageWrapper}>
                             <MediaQuery minWidth={layout.fullSizeMinWidth}>{isFullSize => (
@@ -115,7 +150,11 @@ const GUIComponent = props => {
 GUIComponent.propTypes = {
     basePath: PropTypes.string,
     children: PropTypes.node,
+    enableExtensions: PropTypes.bool,
+    feedbackFormVisible: PropTypes.bool,
+    onExtensionButtonClick: PropTypes.func,
     onTabSelect: PropTypes.func,
+    previewInfoVisible: PropTypes.bool,
     tabIndex: PropTypes.number,
     vm: PropTypes.instanceOf(VM).isRequired
 };

@@ -10,7 +10,7 @@ var autoprefixer = require('autoprefixer');
 var postcssVars = require('postcss-simple-vars');
 var postcssImport = require('postcss-import');
 
-module.exports = {
+module.exports = {  
     devServer: {
         contentBase: path.resolve(__dirname, 'build'),
         host: '0.0.0.0',
@@ -21,6 +21,7 @@ module.exports = {
         lib: ['react', 'react-dom'],
         gui: './src/index.jsx',
         blocksonly: './src/examples/blocks-only.jsx',
+        compatibilitytesting: './src/examples/compatibility-testing.jsx',
         player: './src/examples/player.jsx'
     },
     output: {
@@ -66,8 +67,8 @@ module.exports = {
             }]
         },
         {
-            test: /\.svg$/,
-            loader: 'svg-url-loader?noquotes'
+            test: /\.(svg|png|wav)$/,
+            loader: 'file-loader'
         }]
     },
     plugins: [
@@ -91,14 +92,37 @@ module.exports = {
             title: 'Scratch 3.0 GUI: Blocks Only Example'
         }),
         new HtmlWebpackPlugin({
+            chunks: ['lib', 'compatibilitytesting'],
+            template: 'src/index.ejs',
+            filename: 'compatibility-testing.html',
+            title: 'Scratch 3.0 GUI: Compatibility Testing'
+        }),
+        new HtmlWebpackPlugin({
             chunks: ['lib', 'player'],
             template: 'src/index.ejs',
             filename: 'player.html',
             title: 'Scratch 3.0 GUI: Player Example'
         }),
         new CopyWebpackPlugin([{
+            from: 'static',
+            to: 'static'
+        }]),
+        new CopyWebpackPlugin([{
             from: 'node_modules/scratch-blocks/media',
             to: 'static/blocks-media'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'node_modules/scratch-vm/dist/node/assets',
+            to: 'static/extension-assets'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'extensions/**',
+            to: 'static',
+            context: 'src/examples'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'extension-worker.{js,js.map}',
+            context: 'node_modules/scratch-vm/dist/web'
         }])
     ].concat(process.env.NODE_ENV === 'production' ? [
         new webpack.optimize.UglifyJsPlugin({

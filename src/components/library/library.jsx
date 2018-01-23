@@ -11,8 +11,10 @@ class LibraryComponent extends React.Component {
     constructor (props) {
         super(props);
         bindAll(this, [
+            'handleBlur',
             'handleFilterChange',
             'handleFilterClear',
+            'handleFocus',
             'handleMouseEnter',
             'handleMouseLeave',
             'handleSelect'
@@ -21,6 +23,12 @@ class LibraryComponent extends React.Component {
             selectedItem: null,
             filterQuery: ''
         };
+    }
+    handleBlur (id) {
+        this.handleMouseLeave(id);
+    }
+    handleFocus (id) {
+        this.handleMouseEnter(id);
     }
     handleSelect (id) {
         this.props.onRequestClose();
@@ -43,13 +51,11 @@ class LibraryComponent extends React.Component {
             dataItem.name.toLowerCase().indexOf(this.state.filterQuery.toLowerCase()) !== -1);
     }
     render () {
-        if (!this.props.visible) return null;
         return (
             <ModalComponent
                 className={styles.modalContent}
                 contentLabel={this.props.title}
                 filterQuery={this.state.filterQuery}
-                visible={this.props.visible}
                 onFilterChange={this.handleFilterChange}
                 onFilterClear={this.handleFilterClear}
                 onRequestClose={this.props.onRequestClose}
@@ -61,10 +67,15 @@ class LibraryComponent extends React.Component {
                             dataItem.rawURL;
                         return (
                             <LibraryItem
+                                description={dataItem.description}
+                                disabled={dataItem.disabled}
+                                featured={dataItem.featured}
                                 iconURL={scratchURL}
                                 id={index}
                                 key={`item_${index}`}
                                 name={dataItem.name}
+                                onBlur={this.handleBlur}
+                                onFocus={this.handleFocus}
                                 onMouseEnter={this.handleMouseEnter}
                                 onMouseLeave={this.handleMouseLeave}
                                 onSelect={this.handleSelect}
@@ -93,8 +104,7 @@ LibraryComponent.propTypes = {
     onItemMouseLeave: PropTypes.func,
     onItemSelected: PropTypes.func,
     onRequestClose: PropTypes.func,
-    title: PropTypes.string.isRequired,
-    visible: PropTypes.bool.isRequired
+    title: PropTypes.string.isRequired
 };
 
 export default LibraryComponent;

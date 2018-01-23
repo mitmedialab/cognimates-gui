@@ -9,7 +9,8 @@ const {
     clickXpath,
     findByXpath,
     getDriver,
-    getLogs
+    getLogs,
+    loadUri
 } = new SeleniumHelper();
 
 const errorWhitelist = [
@@ -31,7 +32,7 @@ describe('player example', () => {
 
     test('Load a project by ID', async () => {
         const projectId = '96708228';
-        await driver.get(`file://${uri}#${projectId}`);
+        await loadUri(`${uri}#${projectId}`);
         await new Promise(resolve => setTimeout(resolve, 2000));
         await clickXpath('//img[@title="Go"]');
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -54,7 +55,7 @@ describe('blocks example', () => {
 
     test('Load a project by ID', async () => {
         const projectId = '96708228';
-        await driver.get(`file://${uri}#${projectId}`);
+        await loadUri(`${uri}#${projectId}`);
         await new Promise(resolve => setTimeout(resolve, 2000));
         await clickXpath('//img[@title="Go"]');
         await new Promise(resolve => setTimeout(resolve, 2000));
@@ -64,20 +65,20 @@ describe('blocks example', () => {
     });
 
     test('Change categories', async () => {
-        await driver.get(`file://${uri}`);
+        await loadUri(`${uri}`);
         await clickText('Looks');
         await clickText('Sound');
-        await clickText('Pen');
         await clickText('Events');
         await clickText('Control');
         await clickText('Sensing');
         await clickText('Operators');
-        await clickText('Data');
-        await clickText('Create variable...');
+        await clickText('Variables');
+        await new Promise(resolve => setTimeout(resolve, 1000)); // Wait for scroll animation
+        await clickText('Make a Variable');
         let el = await findByXpath("//input[@placeholder='']");
         await el.sendKeys('score');
         await clickButton('OK');
-        await clickText('Create variable...');
+        await clickText('Make a Variable');
         el = await findByXpath("//input[@placeholder='']");
         await el.sendKeys('second variable');
         await clickButton('OK');

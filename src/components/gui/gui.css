@@ -68,13 +68,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    user-select: none;
 }
 
 .tab.is-selected {
     z-index: 1;
     color: #40B9F5;
     background-color: #FFFFFF;
-    border-bottom: white 1px solid;
+    border-bottom: $ui-background-blue 1px solid;
 }
 
 .tabs {
@@ -141,10 +143,23 @@
     overflow: hidden;
 }
 
-.stage-menu-wrapper {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    height: $stage-menu-height;
-    padding: $space;
+.extension-button-container {
+    width: 3.25rem;
+    height: 3.25rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 50; /** Force extension button above the ScratchBlocks flyout. */
+    background: white;
+
+    border: 1px solid #ddd;
+    box-sizing: content-box; /* To match scratch-block vertical toolbox borders */
+}
+
+.extension-button {
+    font-size: 0.55rem;
+    font-weight: bold;
+}
+.extension-button > div {
+    margin-top: 0;
 }

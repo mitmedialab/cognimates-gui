@@ -27,6 +27,15 @@
     border-color: #1dacf4;
 }
 
+.disabled {
+    opacity: .5;
+    cursor: auto;
+}
+
+.disabled:hover {
+    border-color: #e9eef2;
+}
+
 .library-item-image-container-wrapper {
     height: 100px;
     width: 100%;
@@ -57,4 +66,44 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     min-width: 0;
+}
+
+.featured-item {
+    flex-basis: 300px;
+    max-width: 300px;
+    height: 320px;
+    overflow: hidden;
+    padding: 0;
+}
+
+.featured-image-container {
+    position: relative;
+}
+
+.featured-image {
+    width: 100%;
+}
+
+.featured-text {
+    font-weight: bold;
+    padding: 10px;
+    height: 140px;
+    width: 300px;
+}
+
+.featured-description {
+    font-weight: normal;
+    line-height: 2;
+}
+
+.coming-soon-text {
+    position: absolute;
+    transform: translate(calc(2 * $space), calc(2 * $space));
+    background-color: $data-primary;
+    border-radius: 1rem;
+    box-shadow: 0 0 .5rem hsla(0, 0%, 0%, .25);
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    font-weight: bold;
+    color: #FFF;
 }

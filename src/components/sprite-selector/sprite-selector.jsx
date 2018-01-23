@@ -14,7 +14,7 @@ const addSpriteMessage = (
     <FormattedMessage
         defaultMessage="Add Sprite"
         description="Button to add a sprite in the target pane"
-        id="targetPane.addSprite"
+        id="gui.spriteSelector.addSprite"
     />
 );
 
@@ -22,11 +22,12 @@ const SpriteSelectorComponent = function (props) {
     const {
         onChangeSpriteDirection,
         onChangeSpriteName,
-        onChangeSpriteRotationStyle,
+        onChangeSpriteSize,
         onChangeSpriteVisibility,
         onChangeSpriteX,
         onChangeSpriteY,
         onDeleteSprite,
+        onDuplicateSprite,
         onNewSpriteClick,
         onSelectSprite,
         selectedId,
@@ -49,13 +50,13 @@ const SpriteSelectorComponent = function (props) {
                 direction={selectedSprite.direction}
                 disabled={spriteInfoDisabled}
                 name={selectedSprite.name}
-                rotationStyle={selectedSprite.rotationStyle}
+                size={selectedSprite.size}
                 visible={selectedSprite.visible}
                 x={selectedSprite.x}
                 y={selectedSprite.y}
                 onChangeDirection={onChangeSpriteDirection}
                 onChangeName={onChangeSpriteName}
-                onChangeRotationStyle={onChangeSpriteRotationStyle}
+                onChangeSize={onChangeSpriteSize}
                 onChangeVisibility={onChangeSpriteVisibility}
                 onChangeX={onChangeSpriteX}
                 onChangeY={onChangeSpriteY}
@@ -77,6 +78,7 @@ const SpriteSelectorComponent = function (props) {
                                 selected={sprite.id === selectedId}
                                 onClick={onSelectSprite}
                                 onDeleteButtonClick={onDeleteSprite}
+                                onDuplicateButtonClick={onDuplicateSprite}
                             />
                         ))
                     }
@@ -95,11 +97,12 @@ const SpriteSelectorComponent = function (props) {
 SpriteSelectorComponent.propTypes = {
     onChangeSpriteDirection: PropTypes.func,
     onChangeSpriteName: PropTypes.func,
-    onChangeSpriteRotationStyle: PropTypes.func,
+    onChangeSpriteSize: PropTypes.func,
     onChangeSpriteVisibility: PropTypes.func,
     onChangeSpriteX: PropTypes.func,
     onChangeSpriteY: PropTypes.func,
     onDeleteSprite: PropTypes.func,
+    onDuplicateSprite: PropTypes.func,
     onNewSpriteClick: PropTypes.func,
     onSelectSprite: PropTypes.func,
     selectedId: PropTypes.string,
