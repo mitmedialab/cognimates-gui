@@ -10,7 +10,7 @@ var autoprefixer = require('autoprefixer');
 var postcssVars = require('postcss-simple-vars');
 var postcssImport = require('postcss-import');
 
-module.exports = {
+module.exports = {  
     devServer: {
         contentBase: path.resolve(__dirname, 'build'),
         host: '0.0.0.0',

@@ -1,9 +1,13 @@
 import boostImage from './boost.png';
 import musicImage from './music.png';
 import penImage from './pen.png';
+import wedoImage from './wedo.png';
+import jiboImage from './Jibo_extension.png';
+import alexaImage from './Alexa_extension.png';
+import hueImage from './Hue_extension.png';
 import speechImage from './speech.png';
 import videoImage from './video-sensing.png';
-import wedoImage from './wedo.png';
+
 
 export default [
     {
@@ -21,13 +25,33 @@ export default [
         featured: true
     },
     {
-        name: 'LEGO WeDo 2.0',
-        extensionURL: '',
+        name: 'Lego Wedo',
+        extensionURL: 'wedo',
         iconURL: wedoImage,
-        description: 'Build with motors and sensors.',
-        featured: true,
-        disabled: true
+        description: 'Program with lego wedo.',
+        featured: true
     },
+    {
+        name: 'Jibo',
+        extensionURL: 'jibo',
+        iconURL: jiboImage,
+        description: 'Control Jibo robot.',
+        featured: true
+    },
+    {
+        name: 'Alexa',
+        extensionURL: 'alexa',
+        iconURL: alexaImage,
+        description: 'Teach Alexa new skills.',
+        featured: true
+    },
+    {
+        name: 'Smart Lights',
+        extensionURL: 'hue',
+        iconURL: hueImage,
+        description: 'Control your home Hue Lights',
+        featured: true
+    }, 
     {
         name: 'Speech',
         extensionURL: '',
