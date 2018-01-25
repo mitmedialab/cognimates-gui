@@ -4,6 +4,7 @@ import penImage from './pen.png';
 import wedoImage from './wedo.png';
 import jiboImage from './Jibo_extension.png';
 import alexaImage from './Alexa_extension.png';
+import tutorImage from './Tutor_extension.png';
 import hueImage from './Hue_extension.png';
 import speechImage from './speech.png';
 import videoImage from './video-sensing.png';
@@ -36,6 +37,13 @@ export default [
         extensionURL: 'jibo',
         iconURL: jiboImage,
         description: 'Control Jibo robot.',
+        featured: true
+    },
+    {
+        name: 'Tutor',
+        extensionURL: 'tutor',
+        iconURL: tutorImage,
+        description: 'Control Tutor.',
         featured: true
     },
     {
