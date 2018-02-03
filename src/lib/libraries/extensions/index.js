@@ -91,7 +91,7 @@ export default [
     },
     {
         name: 'Lego Wedo',
-        extensionURL: 'wedo',
+        extensionURL: 'wedo2',
         iconURL: wedoImage,
         description: 'Program with lego wedo.',
         featured: true
