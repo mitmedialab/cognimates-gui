@@ -10,8 +10,8 @@ import catIcon from './happy-cat.png';
 const messages = defineMessages({
     label: {
         id: 'gui.previewInfo.label',
-        defaultMessage: 'Try Scratch 3.0',
-        description: 'Scratch 3.0 modal label - for accessibility'
+        defaultMessage: 'Try Cognimates Extensions for Scratch 3.0',
+        description: 'Cognimates Extensions for Scratch 3.0'
     }
 });
 
@@ -28,21 +28,21 @@ const PreviewModal = ({intl, ...props}) => (
         <Box className={styles.body}>
             <h2>
                 <FormattedMessage
-                    defaultMessage="Welcome to the Scratch 3.0 Preview"
+                    defaultMessage="Welcome to Cognimates Extensions for Scratch 3.0"
                     description="Header for Preview Info Modal"
                     id="gui.previewInfo.welcome"
                 />
             </h2>
             <p>
                 <FormattedMessage
-                    defaultMessage="We're working on the next generation of Scratch. We're excited for you to try it!"
-                    description="Invitation to try 3.0 preview"
+                    defaultMessage="I developed these extensions for my study on AI for kids and families"
+                    description="Invitation to try Cognimates Extensions"
                     id="gui.previewInfo.invitation"
                 />
             </p>
 
             <Box className={styles.buttonRow}>
-                <button
+                {/* <button
                     className={styles.noButton}
                     onClick={props.onCancel}
                 >
@@ -51,14 +51,14 @@ const PreviewModal = ({intl, ...props}) => (
                         description="Label for button to back out of trying Scratch 3.0 preview"
                         id="gui.previewInfo.notnow"
                     />
-                </button>
+                </button> */}
                 <button
                     className={styles.okButton}
                     title="tryit"
                     onClick={props.onTryIt}
                 >
                     <FormattedMessage
-                        defaultMessage="Try It! {caticon}"
+                        defaultMessage="Try them!"
                         description="Label for button to try Scratch 3.0 preview"
                         id="gui.previewModal.tryit"
                         values={{
@@ -74,19 +74,19 @@ const PreviewModal = ({intl, ...props}) => (
             </Box>
             <Box className={styles.faqLinkText}>
                 <FormattedMessage
-                    defaultMessage="To learn more, go to the {previewFaqLink}."
+                    defaultMessage="To learn more, go to the {projectpage}."
                     description="Invitation to try 3.0 preview"
-                    id="gui.previewInfo.previewfaq"
+                    id="gui.previewInfo.projectpage"
                     values={{
-                        previewFaqLink: (
+                        projectpage: (
                             <a
                                 className={styles.faqLink}
-                                href="//scratch.mit.edu/preview-faq"
+                                href="/media.mit.edu/projects/cognimates/overview/"
                             >
                                 <FormattedMessage
-                                    defaultMessage="Preview FAQ"
-                                    description="link to Scratch 3.0 preview FAQ page"
-                                    id="gui.previewInfo.previewfaqlink"
+                                    defaultMessage="Project Page"
+                                    description="link to Cognimates projectpage"
+                                    id="gui.previewInfo.project"
                                 />
                             </a>
                         )
