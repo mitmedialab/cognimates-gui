@@ -95,6 +95,13 @@ export default [
         iconURL: wedoImage,
         description: 'Program with lego wedo.',
         featured: true
+    },
+    {
+        name: 'Wemo',
+        extensionURL: 'wemo',
+        iconURL: wedoImage,
+        description: 'Wemo.',
+        featured: true
     }
     // {
     //     name: 'Wolfram',
