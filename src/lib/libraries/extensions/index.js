@@ -12,6 +12,8 @@ import cozmoImage from './Cozmo_extension.png';
 import ergoImage from './Ergo_extension.png';
 import sentimentImage from './Sentiment_extension.png';
 import clarifaiImage from './Clarifai_extension.png';
+import circuitImage from './CP_extension.png';
+import microbitImage from './Microbit_extension.png';
 
 
 export default [
@@ -72,6 +74,22 @@ export default [
         extensionURL: 'clarifai',
         iconURL: clarifaiImage,
         description: 'Detect images from your camera',
+        featured: true
+        // disabled: true
+    },
+    {
+        name: 'Circuit Playground',
+        extensionURL: 'circuit',
+        iconURL: circuitImage,
+        description: 'Change board LEDS and sounds',
+        featured: true
+        // disabled: true
+    },
+    {
+        name: 'Microbit',
+        extensionURL: 'microbit',
+        iconURL: microbitImage,
+        description: 'Detect gestures and program display',
         featured: true
         // disabled: true
     },
