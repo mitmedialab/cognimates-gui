@@ -92,7 +92,7 @@ class SoundEditor extends React.Component {
         this.props.onUpdateSoundBuffer(
             this.props.soundIndex,
             this.audioBufferPlayer.buffer,
-            wavBuffer ? new Uint8Array(wavBuffer) : new Uint8Array());
+            (new Uint8Array(wavBuffer)));
     }
     handlePlay () {
         this.audioBufferPlayer.play(
