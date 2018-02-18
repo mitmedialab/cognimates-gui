@@ -115,8 +115,8 @@ export default [
         featured: true
     },
     {
-        name: 'Wemo',
-        extensionURL: 'wemo',
+        name: 'tracking',
+        extensionURL: 'tracking',
         iconURL: wedoImage,
         description: 'Wemo.',
         featured: true
