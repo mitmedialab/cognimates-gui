@@ -113,6 +113,13 @@ export default [
         iconURL: wedoImage,
         description: 'Program with lego wedo.',
         featured: true
+    },
+    {
+        name: 'Tracking',
+        extensionURL: 'tracking',
+        iconURL: wedoImage,
+        description: 'Tracking.',
+        featured: true
     }
     // {
     //     name: 'Wolfram',
