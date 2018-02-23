@@ -115,18 +115,10 @@ export default [
         featured: true
     },
     {
-        name: 'tracking',
+        name: 'Tracking',
         extensionURL: 'tracking',
         iconURL: wedoImage,
-        description: 'Wemo.',
+        description: 'Tracking.',
         featured: true
     }
-    // {
-    //     name: 'Wolfram',
-    //     extensionURL: 'clarifai',
-    //     iconURL: ergoImage,
-    //     description: 'Detect images from your camera',
-    //     featured: true,
-    //     disabled: true
-    // },
 ];
