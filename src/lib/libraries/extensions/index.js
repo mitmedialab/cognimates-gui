@@ -14,6 +14,7 @@ import sentimentImage from './Sentiment_extension.png';
 import clarifaiImage from './Clarifai_extension.png';
 import circuitImage from './CP_extension.png';
 import microbitImage from './Microbit_extension.png';
+import trackingImage from './tracking.png';
 
 
 export default [
@@ -117,8 +118,8 @@ export default [
     {
         name: 'Tracking',
         extensionURL: 'tracking',
-        iconURL: wedoImage,
-        description: 'Tracking.',
+        iconURL: trackingImage,
+        description: 'Color tracking.',
         featured: true
     }
 ];
