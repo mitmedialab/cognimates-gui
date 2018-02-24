@@ -14,7 +14,8 @@ import sentimentImage from './Sentiment_extension.png';
 import clarifaiImage from './Clarifai_extension.png';
 import circuitImage from './CP_extension.png';
 import microbitImage from './Microbit_extension.png';
-import trackingImage from './tracking.png';
+import trackingImage from './Tracking_extension.png';
+import watsonImage from './Watson_extension.png';
 
 
 export default [
@@ -120,6 +121,13 @@ export default [
         extensionURL: 'tracking',
         iconURL: trackingImage,
         description: 'Color tracking.',
+        featured: true
+    },
+    {
+        name: 'Watson',
+        extensionURL: 'watson',
+        iconURL: watsonImage,
+        description: 'Machine learning with IBM Watson.',
         featured: true
     }
 ];
