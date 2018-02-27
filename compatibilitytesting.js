@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 495:
+/***/ 608:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14,33 +14,33 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(13);
+var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(6);
+var _reactRedux = __webpack_require__(7);
 
-var _appStateHoc = __webpack_require__(24);
+var _appStateHoc = __webpack_require__(35);
 
 var _appStateHoc2 = _interopRequireDefault(_appStateHoc);
 
-var _controls = __webpack_require__(30);
+var _controls = __webpack_require__(44);
 
 var _controls2 = _interopRequireDefault(_controls);
 
-var _stage = __webpack_require__(50);
+var _stage = __webpack_require__(72);
 
 var _stage2 = _interopRequireDefault(_stage);
 
-var _box = __webpack_require__(7);
+var _box = __webpack_require__(6);
 
 var _box2 = _interopRequireDefault(_box);
 
-var _gui = __webpack_require__(26);
+var _gui = __webpack_require__(38);
 
 var _gui2 = _interopRequireDefault(_gui);
 
-var _projectLoaderHoc = __webpack_require__(31);
+var _projectLoaderHoc = __webpack_require__(49);
 
 var _projectLoaderHoc2 = _interopRequireDefault(_projectLoaderHoc);
 
@@ -147,5 +147,5 @@ _reactDom2.default.render(_react2.default.createElement(App, null), appTarget);
 
 /***/ })
 
-},[495]);
+},[608]);
 //# sourceMappingURL=compatibilitytesting.js.map
