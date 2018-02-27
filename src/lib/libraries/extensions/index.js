@@ -103,6 +103,13 @@ export default [
         featured: true
     },
     {
+        name: 'Tracking',
+        extensionURL: 'tracking',
+        iconURL: trackingImage,
+        description: 'Color tracking.',
+        featured: true
+    },
+    {
         name: 'Pen',
         extensionURL: 'pen',
         iconURL: penImage,
@@ -114,13 +121,6 @@ export default [
         extensionURL: 'wedo2',
         iconURL: wedoImage,
         description: 'Program with lego wedo.',
-        featured: true
-    },
-    {
-        name: 'Tracking',
-        extensionURL: 'tracking',
-        iconURL: trackingImage,
-        description: 'Color tracking.',
         featured: true
     },
     {
