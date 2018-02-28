@@ -26,6 +26,9 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
+  "dependencies": {
+    "scratch-vm": "github:kchadha/scratch-vm#save-load"
+  },
   "devDependencies": {
     "scratch-parser":"latest",
     "autoprefixer": "^7.1.3",
@@ -50,6 +53,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-react": "^7.5.1",
     "file-loader": "1.1.9",
+    "fs-extra": "^5.0.0",
     "get-float-time-domain-data": "0.1.0",
     "get-user-media-promise": "1.1.1",
     "gh-pages": "github:rschamp/gh-pages#publish-branch-to-subfolder",
@@ -102,6 +106,7 @@
     "style-loader": "^0.20.0",
     "svg-to-image": "1.1.3",
     "text-encoding": "0.6.4",
+    "watson-developer-cloud": "^3.0.7",
     "wav-encoder": "1.3.0",
     "web-audio-test-api": "^0.5.2",
     "webpack": "^3.6.0",
