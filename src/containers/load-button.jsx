@@ -50,7 +50,11 @@ LoadButton.propTypes = {
 };
 
 const mapStateToProps = state => ({
+<<<<<<< HEAD
     // loadProject: state.vm.loadProjectLocal.bind(state.vm)
+=======
+    loadProject: state.vm.loadProjectLocal.bind(state.vm)
+>>>>>>> upstream/save-load
 });
 
 export default connect(
