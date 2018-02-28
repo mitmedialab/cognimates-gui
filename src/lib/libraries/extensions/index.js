@@ -14,7 +14,8 @@ import sentimentImage from './Sentiment_extension.png';
 import clarifaiImage from './Clarifai_extension.png';
 import circuitImage from './CP_extension.png';
 import microbitImage from './Microbit_extension.png';
-import trackingImage from './tracking.png';
+import trackingImage from './Tracking_extension.png';
+import watsonImage from './Watson_extension.png';
 
 
 export default [
@@ -117,17 +118,16 @@ export default [
     },
     {
         name: 'Lego Wedo',
-        extensionURL: 'wedo',
+        extensionURL: 'wedo2',
         iconURL: wedoImage,
         description: 'Program with lego wedo.',
         featured: true
+    },
+    {
+        name: 'Watson',
+        extensionURL: 'watson',
+        iconURL: watsonImage,
+        description: 'Machine learning with IBM Watson.',
+        featured: true
     }
-    // {
-    //     name: 'Wolfram',
-    //     extensionURL: 'clarifai',
-    //     iconURL: ergoImage,
-    //     description: 'Detect images from your camera',
-    //     featured: true,
-    //     disabled: true
-    // },
 ];
