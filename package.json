@@ -27,10 +27,11 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
+    "scratch-render": "0.1.0-prerelease.1516837442",
     "scratch-vm": "github:kchadha/scratch-vm#save-load"
   },
   "devDependencies": {
-    "scratch-parser":"latest",
+    "scratch-parser": "latest",
     "autoprefixer": "^7.1.3",
     "babel-core": "^6.23.1",
     "babel-eslint": "^8.0.1",
