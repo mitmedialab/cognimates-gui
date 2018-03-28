@@ -24,6 +24,10 @@ const LoadButtonComponent = ({
                 {title}
             </ButtonComponent>
             <input
+<<<<<<< HEAD
+=======
+                accept=".sb2,.sb3"
+>>>>>>> upstream/save-load
                 className={styles.fileInput}
                 ref={inputRef}
                 type="file"
