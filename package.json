@@ -27,8 +27,7 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "scratch-render": "0.1.0-prerelease.1516837442",
-    "scratch-vm": "github:kchadha/scratch-vm#save-load"
+    "scratch-render": "0.1.0-prerelease.1516837442"
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
