@@ -129,5 +129,12 @@ export default [
         iconURL: watsonImage,
         description: 'Machine learning with IBM Watson.',
         featured: true
+    },
+    {
+        name: 'Watson Text Classifier',
+        extensionURL: 'watson_nlc',
+        iconURL: watsonImage,
+        description: 'Machine learning with IBM Watson.',
+        featured: true
     }
 ];
