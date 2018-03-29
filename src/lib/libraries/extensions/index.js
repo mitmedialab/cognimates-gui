@@ -136,5 +136,12 @@ export default [
         iconURL: watsonImage,
         description: 'Machine learning with IBM Watson.',
         featured: true
+    },
+    {
+        name: "Watson Speech",
+        extensionURL:'watson_speech', 
+        iconURL: watsonImage,
+        description: 'Speech to Text with IBM Watson.', 
+        featured: true
     }
 ];
