@@ -16,7 +16,7 @@ import circuitImage from './CP_extension.png';
 import microbitImage from './Microbit_extension.png';
 import trackingImage from './Tracking_extension.png';
 import watsonImage from './Watson_extension.png';
-
+// import speechImage from './Speech_extension.png';
 
 export default [
     {
@@ -135,6 +135,13 @@ export default [
         extensionURL: 'watson_nlc',
         iconURL: watsonImage,
         description: 'Machine learning with IBM Watson.',
+        featured: true
+    },
+    {
+        name: 'Speech',
+        extensionURL: 'watson_speech',
+        iconURL: speechImage,
+        description: 'Speech to text',
         featured: true
     }
 ];
