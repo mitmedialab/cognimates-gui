@@ -7,14 +7,14 @@ import alexaImage from './Alexa_extension.png';
 import cognimateImage from './Cognimate_extension.png';
 import hueImage from './Hue_extension.png';
 import speechImage from './speech.png';
-// import videoImage from './video-sensing.png';
+import videoImage from './Video_extension.png';
 import cozmoImage from './Cozmo_extension.png';
 import ergoImage from './Ergo_extension.png';
 import sentimentImage from './Sentiment_extension.png';
 import clarifaiImage from './Clarifai_extension.png';
 import circuitImage from './CP_extension.png';
 import microbitImage from './Microbit_extension.png';
-import trackingImage from './Video_extension.png';
+import trackingImage from './Color_extension.png';
 import watsonVision from './Vision_extension.png';
 import watsonNlc from './Nlc_extension.png';
 
