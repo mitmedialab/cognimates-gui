@@ -38,7 +38,7 @@ var _projectLoaderHoc = __webpack_require__(49);
 
 var _projectLoaderHoc2 = _interopRequireDefault(_projectLoaderHoc);
 
-var _index = __webpack_require__(609);
+var _index = __webpack_require__(608);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -131,11 +131,11 @@ module.exports = {
 
 /***/ }),
 
-/***/ 609:
+/***/ 608:
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(610);
+var content = __webpack_require__(609);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -182,7 +182,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 610:
+/***/ 609:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
