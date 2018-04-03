@@ -24,7 +24,7 @@ const LoadButtonComponent = ({
                 {title}
             </ButtonComponent>
             <input
-                accept=".sb,.sb2,.sb3,.zip"
+                accept=".sb2,.sb3"
                 className={styles.fileInput}
                 ref={inputRef}
                 type="file"
