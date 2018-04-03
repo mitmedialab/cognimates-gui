@@ -127,7 +127,7 @@ export default [
     },
     {
         name: 'Vision',
-        extensionURL: 'watson_vision',
+        extensionURL: 'watson',
         iconURL: watsonVision,
         description: 'Vision Training',
         featured: true
