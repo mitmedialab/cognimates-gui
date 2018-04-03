@@ -18,7 +18,6 @@ import {updateToolbox} from '../reducers/toolbox';
 import {activateColorPicker} from '../reducers/color-picker';
 import {closeExtensionLibrary} from '../reducers/modals';
 import {activateCustomProcedures, deactivateCustomProcedures} from '../reducers/custom-procedures';
-// const toolboxXML = makeToolboxXML(target ? target.isStage : true, target && target.id, dynamicBlocksXML);
 
 const addFunctionListener = (object, property, callback) => {
     const oldFn = object[property];
@@ -59,21 +58,6 @@ class Blocks extends React.Component {
             prompt: null
         };
         this.onTargetsUpdate = debounce(this.onTargetsUpdate, 100);
-    }
-    handleExtensionAdded (blocksInfo) {
-        this.ScratchBlocks.defineBlocksWithJsonArray(blocksInfo.map(blockInfo => blockInfo.json));
-        const dynamicBlocksXML = this.props.vm.runtime.getBlocksXML();
-        // If there's no current editing target, try to use the stage instead.
-        // However, if the extension is added during project load there might not yet be any targets at all.
-        // If that's the case, provide a fake stage object and prepare the toolbox as if the stage were selected.
-        const target =
-            this.props.vm.runtime.getEditingTarget() ||
-            this.props.vm.runtime.getTargetForStage() || {
-                isStage: true,
-                id: '' // fake stage has no ID
-            };
-        const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML);
-        this.props.updateToolboxState(toolboxXML);
     }
     componentDidMount () {
         this.ScratchBlocks.FieldColourSlider.activateEyedropper_ = this.props.onActivateColorPicker;
@@ -261,7 +245,6 @@ class Blocks extends React.Component {
             optVarType !== this.ScratchBlocks.BROADCAST_MESSAGE_VARIABLE_TYPE;
         this.setState(p);
     }
-    
     handlePromptCallback (data) {
         this.state.prompt.callback(data);
         this.handlePromptClose();
