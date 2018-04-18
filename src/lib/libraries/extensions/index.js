@@ -58,10 +58,10 @@ export default [
         // disabled: true
     },
     {
-        name: 'Sentiment Analysis',
+        name: 'Feelings',
         extensionURL: 'sentiment',
         iconURL: sentimentImage,
-        description: 'Detect sentiment of your messages',
+        description: 'Detect the feelings of your messages',
         featured: true
         // disabled: true
     },
