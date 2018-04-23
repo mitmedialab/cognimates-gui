@@ -18,6 +18,7 @@ import watsonNlc from './Nlc_extension.png';
 import videoImage from './Color_extension.png';
 import ev3Image from './ev3.png';
 import boostImage from './boost.png';
+import styleImage from './Clarifai_extension.png';
 
 export default [
     {
@@ -185,6 +186,13 @@ export default [
         extensionURL: '',
         iconURL: boostImage,
         description: 'Build with motors and sensors.',
+        featured: true,
+    },
+    {
+        name: 'Style transfer',
+        extensionURL: 'styleTransfer',
+        iconURL: styleImage,
+        description: 'Image style transfer.',
         featured: true,
     }
 ];
