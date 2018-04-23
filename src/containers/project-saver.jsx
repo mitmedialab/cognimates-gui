@@ -52,23 +52,7 @@ class ProjectSaver extends React.Component {
             /* eslint-enable no-unused-vars */
             ...props
         } = this.props;
-<<<<<<< HEAD:src/containers/save-button.jsx
-        return (
-            <ComingSoonTooltip
-                place="bottom"
-                tooltipId="save-button"
-            >
-                <ButtonComponent
-                    onClick={this.handleClick}
-                    {...props}
-                >
-                    Save
-                </ButtonComponent>
-            </ComingSoonTooltip>
-        );
-=======
         return this.props.children(this.saveProject, props);
->>>>>>> upstream/develop:src/containers/project-saver.jsx
     }
 }
 
