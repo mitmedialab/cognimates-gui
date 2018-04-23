@@ -6,7 +6,6 @@ import alexaImage from './Alexa_extension.png';
 import cognimateImage from './Cognimate_extension.png';
 import hueImage from './Hue_extension.png';
 import speechImage from './speech.png';
-// import videoImage from './video-sensing.png';
 import cozmoImage from './Cozmo_extension.png';
 import ergoImage from './Ergo_extension.png';
 import sentimentImage from './Sentiment_extension.png';
@@ -16,11 +15,7 @@ import microbitImage from './Microbit_extension.png';
 import trackingImage from './Color_extension.png';
 import watsonVision from './Vision_extension.png';
 import watsonNlc from './Nlc_extension.png';
-
-// import speechImage from './Speech_extension.png';
-import videoImage from './video-sensing.png';
-import speechImage from './speech.png';
-import microbitImage from './microbit.png';
+import videoImage from './Color_extension.png';
 import ev3Image from './ev3.png';
 import boostImage from './boost.png';
 
@@ -149,6 +144,8 @@ export default [
         iconURL: speechImage,
         description: 'Speech to text',
         featured: true
+    },
+    {    
         name: 'Video Motion',
         extensionURL: 'videoSensing',
         iconURL: videoImage,
@@ -160,32 +157,28 @@ export default [
         extensionURL: '',
         iconURL: speechImage,
         description: 'Talk to your projects.',
-        featured: true,
-        disabled: true
+        featured: true
     },
     {
         name: 'Micro:bit',
         extensionURL: '',
         iconURL: microbitImage,
         description: 'Connect your projects with the physical world.',
-        featured: true,
-        disabled: true
+        featured: true
     },
     {
         name: 'LEGO WeDo 2.0',
         extensionURL: '',
         iconURL: wedoImage,
         description: 'Build with motors and sensors.',
-        featured: true,
-        disabled: true
+        featured: true
     },
     {
         name: 'LEGO Mindstorms EV3',
         extensionURL: '',
         iconURL: ev3Image,
         description: 'Build interactive robots and more.',
-        featured: true,
-        disabled: true
+        featured: true
     },
     {
         name: 'LEGO Boost',
@@ -193,6 +186,5 @@ export default [
         iconURL: boostImage,
         description: 'Build with motors and sensors.',
         featured: true,
-        disabled: true
     }
 ];
