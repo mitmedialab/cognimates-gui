@@ -26,6 +26,11 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
+  "dependencies": {
+    "scratch-svg-renderer": "github:kchadha/scratch-svg-renderer#bitmap-importer",
+    "scratch-render": "github:kchadha/scratch-render#new-svg-renderer",
+    "scratch-vm": "github:kchadha/scratch-vm#costume-upload"
+  },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
     "babel-core": "^6.23.1",
@@ -92,9 +97,7 @@
     "scratch-blocks": "0.1.0-prerelease.1524163302",
     "scratch-l10n": "2.0.20180108132626",
     "scratch-paint": "0.2.0-prerelease.20180410152401",
-    "scratch-render": "0.1.0-prerelease.1523453612",
     "scratch-storage": "0.4.0",
-    "scratch-vm": "0.1.0-prerelease.1524254811",
     "selenium-webdriver": "3.6.0",
     "startaudiocontext": "1.2.1",
     "style-loader": "^0.20.0",
