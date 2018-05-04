@@ -10,14 +10,19 @@ import StageSelectorComponent from '../components/stage-selector/stage-selector.
 
 import backdropLibraryContent from '../lib/libraries/backdrops.json';
 import costumeLibraryContent from '../lib/libraries/costumes.json';
+<<<<<<< HEAD
 import {importBitmap} from 'scratch-svg-renderer';
 import log from '../lib/log.js';
+=======
+import {handleFileUpload, costumeUpload} from '../lib/file-uploader.js';
+>>>>>>> upstream/develop
 
 class StageSelector extends React.Component {
     constructor (props) {
         super(props);
         bindAll(this, [
             'handleClick',
+            'handleNewBackdrop',
             'handleSurpriseBackdrop',
             'handleEmptyBackdrop',
             'addBackdropFromLibraryItem',
@@ -29,33 +34,35 @@ class StageSelector extends React.Component {
     addBackdropFromLibraryItem (item) {
         const vmBackdrop = {
             name: item.name,
+            md5: item.md5,
             rotationCenterX: item.info[0] && item.info[0] / 2,
             rotationCenterY: item.info[1] && item.info[1] / 2,
             bitmapResolution: item.info.length > 2 ? item.info[2] : 1,
             skinId: null
         };
-        return this.props.vm.addBackdrop(item.md5, vmBackdrop);
+        this.handleNewBackdrop(vmBackdrop);
     }
     handleClick () {
         this.props.onSelect(this.props.id);
     }
+    handleNewBackdrop (backdrop) {
+        this.props.vm.addBackdrop(backdrop.md5, backdrop).then(() =>
+            this.props.onActivateTab(COSTUMES_TAB_INDEX));
+    }
     handleSurpriseBackdrop () {
         // @todo should this not add a backdrop you already have?
         const item = backdropLibraryContent[Math.floor(Math.random() * backdropLibraryContent.length)];
-        this.addBackdropFromLibraryItem(item).then(() => {
-            this.props.onActivateTab(COSTUMES_TAB_INDEX);
-        });
+        this.addBackdropFromLibraryItem(item);
     }
     handleEmptyBackdrop () {
         // @todo this is brittle, will need to be refactored for localized libraries
         const emptyItem = costumeLibraryContent.find(item => item.name === 'Empty');
         if (emptyItem) {
-            this.addBackdropFromLibraryItem(emptyItem).then(() => {
-                this.props.onActivateTab(COSTUMES_TAB_INDEX);
-            });
+            this.addBackdropFromLibraryItem(emptyItem);
         }
     }
     handleBackdropUpload (e) {
+<<<<<<< HEAD
         const thisFileInput = e.target;
         let thisFile = null;
         const reader = new FileReader();
@@ -118,6 +125,12 @@ class StageSelector extends React.Component {
             thisFile = thisFileInput.files[0];
             reader.readAsArrayBuffer(thisFile);
         }
+=======
+        const storage = this.props.vm.runtime.storage;
+        handleFileUpload(e.target, (buffer, fileType, fileName) => {
+            costumeUpload(buffer, fileType, fileName, storage, this.handleNewBackdrop);
+        });
+>>>>>>> upstream/develop
     }
     handleFileUploadClick () {
         this.fileInput.click();
