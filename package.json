@@ -96,16 +96,11 @@
     "scratch-audio": "0.1.0-prerelease.1523977528",
     "scratch-blocks": "0.1.0-prerelease.1525125321",
     "scratch-l10n": "2.0.20180108132626",
-<<<<<<< HEAD
-    "scratch-paint": "0.2.0-prerelease.20180410152401",
-    "scratch-storage": "0.4.0",
-=======
     "scratch-paint": "0.2.0-prerelease.20180504180528",
     "scratch-render": "0.1.0-prerelease.20180502115145",
     "scratch-svg-renderer": "0.1.0-prerelease.20180423193917",
     "scratch-storage": "0.4.1",
     "scratch-vm": "0.1.0-prerelease.1525459625",
->>>>>>> upstream/develop
     "selenium-webdriver": "3.6.0",
     "startaudiocontext": "1.2.1",
     "style-loader": "^0.20.0",

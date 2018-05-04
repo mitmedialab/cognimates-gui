@@ -11,12 +11,8 @@ var autoprefixer = require('autoprefixer');
 var postcssVars = require('postcss-simple-vars');
 var postcssImport = require('postcss-import');
 
-<<<<<<< HEAD
-module.exports = {  
-=======
 const base = {
     devtool: 'cheap-module-source-map',
->>>>>>> upstream/develop
     devServer: {
         contentBase: path.resolve(__dirname, 'build'),
         host: '0.0.0.0',
