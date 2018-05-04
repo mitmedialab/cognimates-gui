@@ -84,10 +84,7 @@ class CostumeTab extends React.Component {
             'handleSurpriseBackdrop',
             'handleFileUploadClick',
             'handleCostumeUpload',
-<<<<<<< HEAD
-=======
             'handleCameraBuffer',
->>>>>>> upstream/develop
             'setFileInput'
         ]);
         const {
