@@ -27,8 +27,8 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-    "scratch-svg-renderer": "github:kchadha/scratch-svg-renderer#bitmap-importer",
     "scratch-render": "github:kchadha/scratch-render#new-svg-renderer",
+    "scratch-svg-renderer": "github:kchadha/scratch-svg-renderer#bitmap-importer",
     "scratch-vm": "github:kchadha/scratch-vm#costume-upload"
   },
   "devDependencies": {
