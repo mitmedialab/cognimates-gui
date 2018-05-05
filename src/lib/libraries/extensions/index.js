@@ -19,6 +19,7 @@ import videoImage from './Color_extension.png';
 import ev3Image from './ev3.png';
 import boostImage from './boost.png';
 import styleImage from './Clarifai_extension.png';
+import wemoImage from './wemo_ext.png';
 
 export default [
     {
@@ -47,6 +48,13 @@ export default [
         extensionURL: 'hue',
         iconURL: hueImage,
         description: 'Control your home lights',
+        featured: true
+    },
+    {
+        name: 'Wemo',
+        extensionURL: 'wemo',
+        iconURL: wemoImage,
+        description: 'Control a Wemo switch!',
         featured: true
     },
     {
