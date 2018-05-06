@@ -20,6 +20,7 @@ import ev3Image from './ev3.png';
 import boostImage from './boost.png';
 import styleImage from './Clarifai_extension.png';
 import wemoImage from './wemo_ext.png';
+import twitterImage from './Twitter_extension.png';
 
 export default [
     {
@@ -89,22 +90,6 @@ export default [
         featured: true
         // disabled: true
     },
-    // {
-    //     name: 'Circuit Playground',
-    //     extensionURL: 'circuit',
-    //     iconURL: circuitImage,
-    //     description: 'Change board LEDS and sounds',
-    //     featured: true
-    //     // disabled: true
-    // },
-    // {
-    //     name: 'Microbit',
-    //     extensionURL: 'microbit',
-    //     iconURL: microbitImage,
-    //     description: 'Detect gestures and program display',
-    //     featured: true
-    //     // disabled: true
-    // },
     {
         name: 'Music',
         extensionURL: 'music',
@@ -153,24 +138,10 @@ export default [
         iconURL: speechImage,
         description: 'Speech to text',
         featured: true
-    },
-    {    
-        name: 'Video Motion',
-        extensionURL: 'videoSensing',
-        iconURL: videoImage,
-        description: 'Detect motion with the camera.',
-        featured: true
-    },
-    {
-        name: 'Speech Recognition',
-        extensionURL: '',
-        iconURL: speechImage,
-        description: 'Talk to your projects.',
-        featured: true
-    },
+    }, 
     {
         name: 'Micro:bit',
-        extensionURL: '',
+        extensionURL: 'microbit',
         iconURL: microbitImage,
         description: 'Connect your projects with the physical world.',
         featured: true
@@ -183,24 +154,62 @@ export default [
         featured: true
     },
     {
-        name: 'LEGO MINDSTORMS EV3',
-        extensionURL: '',
-        iconURL: ev3Image,
-        description: 'Build interactive robots and more.',
+        name: 'Twitter',
+        extensionURL: 'twitter',
+        iconURL: twitterImage,
+        description: 'Use Twitter in your projects!',
         featured: true
     },
-    {
-        name: 'LEGO Boost',
-        extensionURL: '',
-        iconURL: boostImage,
-        description: 'Build with motors and sensors.',
-        featured: true,
-    },
-    {
-        name: 'Style transfer',
-        extensionURL: 'styleTransfer',
-        iconURL: styleImage,
-        description: 'Image style transfer.',
-        featured: true,
-    }
+     // {
+    //     name: 'Circuit Playground',
+    //     extensionURL: 'circuit',
+    //     iconURL: circuitImage,
+    //     description: 'Change board LEDS and sounds',
+    //     featured: true
+    //     // disabled: true
+    // },
+    // {
+    //     name: 'Microbit',
+    //     extensionURL: 'microbit',
+    //     iconURL: microbitImage,
+    //     description: 'Detect gestures and program display',
+    //     featured: true
+    //     // disabled: true
+    // },
+    // {    
+    //     name: 'Video Motion',
+    //     extensionURL: 'videoSensing',
+    //     iconURL: videoImage,
+    //     description: 'Detect motion with the camera.',
+    //     featured: true
+    // },
+    // {
+    //     name: 'Speech Recognition',
+    //     extensionURL: '',
+    //     iconURL: speechImage,
+    //     description: 'Talk to your projects.',
+    //     featured: true
+    // },
+   
+    // {
+    //     name: 'LEGO MINDSTORMS EV3',
+    //     extensionURL: '',
+    //     iconURL: ev3Image,
+    //     description: 'Build interactive robots and more.',
+    //     featured: true
+    // },
+    // {
+    //     name: 'LEGO Boost',
+    //     extensionURL: '',
+    //     iconURL: boostImage,
+    //     description: 'Build with motors and sensors.',
+    //     featured: true,
+    // },
+    // {
+    //     name: 'Style transfer',
+    //     extensionURL: 'styleTransfer',
+    //     iconURL: styleImage,
+    //     description: 'Image style transfer.',
+    //     featured: true,
+    // }
 ];
