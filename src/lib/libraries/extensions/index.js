@@ -21,6 +21,7 @@ import boostImage from './boost.png';
 import styleImage from './Clarifai_extension.png';
 import wemoImage from './wemo_ext.png';
 import twitterImage from './Twitter_extension.png';
+import translationImage from './Translation_extension.png';
 
 export default [
     {
@@ -160,6 +161,13 @@ export default [
         description: 'Use Twitter in your projects!',
         featured: true
     },
+    {
+        name: 'Translation',
+        extensionURL: 'translate',
+        iconURL: translationImage,
+        description: 'Translate between languages',
+        featured: true
+    }
      // {
     //     name: 'Circuit Playground',
     //     extensionURL: 'circuit',
