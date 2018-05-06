@@ -15,11 +15,13 @@ import microbitImage from './Microbit_extension.png';
 import trackingImage from './Color_extension.png';
 import watsonVision from './Vision_extension.png';
 import watsonNlc from './Nlc_extension.png';
-import videoImage from './Color_extension.png';
+import colorImage from './Color_extension.png';
+import videoImage from './Video_extension.png';
 import ev3Image from './ev3.png';
 import boostImage from './boost.png';
 import styleImage from './Clarifai_extension.png';
 import wemoImage from './wemo_ext.png';
+import twitterImage from './twitter_ext.jpg';
 
 export default [
     {
@@ -152,6 +154,13 @@ export default [
         extensionURL: 'watson_speech',
         iconURL: speechImage,
         description: 'Speech to text',
+        featured: true
+    },
+    {
+        name: 'Twitter',
+        extensionURL: 'twitter',
+        iconURL: twitterImage,
+        description: 'Connect to Twitter',
         featured: true
     },
     {    
