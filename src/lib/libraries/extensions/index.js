@@ -93,6 +93,13 @@ export default [
         // disabled: true
     },
     {
+        name: 'Twitter',
+        extensionURL: 'twitter',
+        iconURL: twitterImage,
+        description: 'Use Twitter in your projects!',
+        featured: true
+    },
+    {
         name: 'Music',
         extensionURL: 'music',
         iconURL: musicImage,
@@ -146,20 +153,6 @@ export default [
         extensionURL: 'microbit',
         iconURL: microbitImage,
         description: 'Connect your projects with the physical world.',
-        featured: true
-    },
-    {
-        name: 'LEGO WeDo 2.0',
-        extensionURL: '',
-        iconURL: wedoImage,
-        description: 'Build with motors and sensors.',
-        featured: true
-    },
-    {
-        name: 'Twitter',
-        extensionURL: 'twitter',
-        iconURL: twitterImage,
-        description: 'Use Twitter in your projects!',
         featured: true
     },
     {
