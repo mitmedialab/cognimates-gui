@@ -21,7 +21,7 @@ import ev3Image from './ev3.png';
 import boostImage from './boost.png';
 import styleImage from './Clarifai_extension.png';
 import wemoImage from './wemo_ext.png';
-import twitterImage from './Twitter_extension.png';
+import twitterImage from './twitter_ext.jpg';
 
 export default [
     {
