@@ -1,3 +1,4 @@
+
 import {TextEncoder} from 'text-encoding';
 import projectJson from './project.json';
 
@@ -30,7 +31,7 @@ export default [{
     assetType: 'ImageBitmap',
     dataFormat: 'PNG',
     data: backdrop
-}, {
+} , {
     id: '09dc888b0b7df19f70d81588ae73420e',
     assetType: 'ImageVector',
     dataFormat: 'SVG',
