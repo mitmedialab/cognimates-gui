@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<svg version="1.1" id="caty" x="0px" y="0px" width="95px" height="111px" viewBox="0 0 95 111" enable-background="new 0 0 95 111" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-=======
 <svg version="1.1" id="cat" x="0px" y="0px" width="95px" height="111px" viewBox="0 0 95 111" enable-background="new 0 0 95 111" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
->>>>>>> parent of 4d1f7840... empty sprite loaded
   <g>
     <g id="Layer_3">
       <path fill="#FAA51D" stroke="#000000" d="M22.462,79.039c-2.415-0.451-5.304-1.309-7.742-3.503&#xD;&#xA;&#x9;&#x9;C9.268,70.629,7.526,62.535,3.672,64.622c-3.856,2.088-3.782,15.165,8.353,19.194c4.182,1.391,7.998,1.396,11.091,1.312&#xD;&#xA;&#x9;&#x9;c0.811-0.025,7.717-0.654,10.079-4.074c2.361-3.42,0.719-4.272-0.09-4.744C32.295,75.838,25.878,79.677,22.462,79.039z"/>
