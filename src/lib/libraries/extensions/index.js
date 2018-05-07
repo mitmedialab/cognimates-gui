@@ -122,7 +122,7 @@ export default [
     },
     {
         name: 'Speech',
-        extensionURL: 'watson_speech',
+        extensionURL: 'speech',
         iconURL: speechImage,
         description: 'Speech to text',
         featured: true
@@ -133,14 +133,14 @@ export default [
         iconURL: microbitImage,
         description: 'Program your Microbit',
         featured: true
-    },
+    },/*
     {
         name: 'Translation',
         extensionURL: 'translate',
         iconURL: translationImage,
         description: 'Translate between languages',
         featured: true
-    }, 
+    },*/ 
     {
         name: 'Lego Wedo',
         extensionURL: 'wedo2',
