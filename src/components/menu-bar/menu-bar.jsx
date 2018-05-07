@@ -109,7 +109,7 @@ const MenuBar = props => (
                         draggable={false}
                         src={scratchLogo}
                     />
-                </div> {/*
+                </div>
                 <div className={classNames(styles.menuBarItem, styles.hoverable)}>
                     <MenuBarItemTooltip
                         id="menubar-selector"
@@ -117,7 +117,7 @@ const MenuBar = props => (
                     >
                         <LanguageSelector />
                     </MenuBarItemTooltip>
-                </div>*/}
+                </div>
                 <div
                     className={classNames(styles.menuBarItem, styles.hoverable, {
                         [styles.active]: props.fileMenuOpen
@@ -242,7 +242,6 @@ const MenuBar = props => (
                 </div>
             </div>
             <Divider className={classNames(styles.divider)} />
-            {/*
             <div className={classNames(styles.menuBarItem)}>
                 <MenuBarItemTooltip id="title-field">
                     <input
@@ -277,9 +276,8 @@ const MenuBar = props => (
                         />
                     </Button>
                 </MenuBarItemTooltip>
-            </div>*/}
             </div>
-        {/*}
+        </div>
         <div className={classNames(styles.menuBarItem, styles.feedbackButtonWrapper)}>
             <a
                 className={styles.feedbackLink}
@@ -298,10 +296,8 @@ const MenuBar = props => (
                     />
                 </Button>
             </a>
-        </div>*/}
-
+        </div>
         <div className={styles.accountInfoWrapper}>
-        {/*
             <div
                 aria-label="How-to Library"
                 className={classNames(styles.menuBarItem, styles.hoverable)}
@@ -311,9 +307,8 @@ const MenuBar = props => (
                     className={styles.helpIcon}
                     src={helpIcon}
                 />
-        </div>*/}
+            </div>
             <MenuBarItemTooltip id="mystuff">
-                {/*
                 <div
                     className={classNames(
                         styles.menuBarItem,
@@ -325,7 +320,31 @@ const MenuBar = props => (
                         className={styles.mystuffIcon}
                         src={mystuffIcon}
                     />
-                </div>*/}
+                </div>
+            </MenuBarItemTooltip>
+            <MenuBarItemTooltip
+                id="account-nav"
+                place="left"
+            >
+                <div
+                    className={classNames(
+                        styles.menuBarItem,
+                        styles.hoverable,
+                        styles.accountNavMenu
+                    )}
+                >
+                    <img
+                        className={styles.profileIcon}
+                        src={profileIcon}
+                    />
+                    <span>
+                        {'scratch-cat' /* @todo username */}
+                    </span>
+                    <img
+                        className={styles.dropdownCaretIcon}
+                        src={dropdownCaret}
+                    />
+                </div>
             </MenuBarItemTooltip>
         </div>
     </Box>
