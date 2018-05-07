@@ -22,6 +22,7 @@ import boostImage from './boost.png';
 import styleImage from './Clarifai_extension.png';
 import wemoImage from './wemo_ext.png';
 import twitterImage from './twitter_ext.jpg';
+import translationImage from './Translation_extension.png';
 
 export default [
     {
@@ -92,10 +93,10 @@ export default [
         // disabled: true
     },
     {
-        name: 'Music',
-        extensionURL: 'music',
-        iconURL: musicImage,
-        description: 'Play instruments and drums',
+        name: 'Twitter',
+        extensionURL: 'twitter',
+        iconURL: twitterImage,
+        description: 'Use Twitter in your projects',
         featured: true
     },
     {
@@ -103,20 +104,6 @@ export default [
         extensionURL: 'tracking',
         iconURL: trackingImage,
         description: 'Color sensing',
-        featured: true
-    },
-    {
-        name: 'Pen',
-        extensionURL: 'pen',
-        iconURL: penImage,
-        description: 'Draw with your sprites',
-        featured: true
-    },
-    {
-        name: 'Lego Wedo',
-        extensionURL: 'wedo2',
-        iconURL: wedoImage,
-        description: 'Program with lego wedo',
         featured: true
     },
     {
@@ -144,23 +131,37 @@ export default [
         name: 'Micro:bit',
         extensionURL: 'microbit',
         iconURL: microbitImage,
-        description: 'Connect your projects with the physical world.',
+        description: 'Program your Microbit',
         featured: true
     },
     {
-        name: 'LEGO WeDo 2.0',
-        extensionURL: '',
+        name: 'Translation',
+        extensionURL: 'translate',
+        iconURL: translationImage,
+        description: 'Translate between languages',
+        featured: true
+    }, 
+    {
+        name: 'Lego Wedo',
+        extensionURL: 'wedo2',
         iconURL: wedoImage,
-        description: 'Build with motors and sensors.',
+        description: 'Program with Lego Wedo',
         featured: true
     },
     {
-        name: 'Twitter',
-        extensionURL: 'twitter',
-        iconURL: twitterImage,
-        description: 'Use Twitter in your projects!',
+        name: 'Pen',
+        extensionURL: 'pen',
+        iconURL: penImage,
+        description: 'Draw with your sprites',
         featured: true
     },
+    {
+        name: 'Music',
+        extensionURL: 'music',
+        iconURL: musicImage,
+        description: 'Play instruments and drums',
+        featured: true
+    }
      // {
     //     name: 'Circuit Playground',
     //     extensionURL: 'circuit',
