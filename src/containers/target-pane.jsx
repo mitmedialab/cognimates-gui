@@ -67,13 +67,13 @@ class TargetPane extends React.Component {
     }
     handleSurpriseSpriteClick () {
         const item = spriteLibraryContent[Math.floor(Math.random() * spriteLibraryContent.length)];
-        this.props.vm.addSprite2(JSON.stringify(item.json));
+        this.props.vm.addSprite(JSON.stringify(item.json));
     }
     handlePaintSpriteClick () {
         // @todo this is brittle, will need to be refactored for localized libraries
         const emptyItem = spriteLibraryContent.find(item => item.name === 'Empty');
         if (emptyItem) {
-            this.props.vm.addSprite2(JSON.stringify(emptyItem.json)).then(() => {
+            this.props.vm.addSprite(JSON.stringify(emptyItem.json)).then(() => {
                 setTimeout(() => { // Wait for targets update to propagate before tab switching
                     this.props.onActivateTab(COSTUMES_TAB_INDEX);
                 });
