@@ -32,13 +32,15 @@ export default [{
     dataFormat: 'PNG',
     data: backdrop
 } , {
-    id: '09dc888b0b7df19f70d81588ae73420e',
+    id: 'cd21514d0531fdffb22204e0ec5ed84a',
     assetType: 'ImageVector',
     dataFormat: 'SVG',
     data: encoder.encode(costume1)
-}, {
+} 
+, {
     id: '3696356a03a8d938318876a593572843',
     assetType: 'ImageVector',
     dataFormat: 'SVG',
     data: encoder.encode(costume2)
-}];
+}
+];
