@@ -115,7 +115,7 @@ export default [
     },
     {
         name: 'Text',
-        extensionURL: 'watson_nlc',
+        extensionURL: 'watsonNlc',
         iconURL: watsonNlc,
         description: 'Text Training',
         featured: true
