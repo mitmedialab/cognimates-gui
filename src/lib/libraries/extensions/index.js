@@ -142,6 +142,13 @@ export default [
         featured: true
     },
     {
+        name: 'Muse',
+        extensionURL: 'muse',
+        iconURL: translationImage,
+        description: 'Muse headband',
+        featured: true
+    },
+    {
         name: 'Lego Wedo',
         extensionURL: 'wedo2',
         iconURL: wedoImage,
