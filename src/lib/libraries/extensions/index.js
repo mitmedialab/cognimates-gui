@@ -134,20 +134,20 @@ export default [
         description: 'Program your Microbit',
         featured: true
     },
-    {
-        name: 'Translation',
-        extensionURL: 'translate',
-        iconURL: translationImage,
-        description: 'Translate between languages',
-        featured: true
-    },
-    {
-        name: 'Muse',
-        extensionURL: 'muse',
-        iconURL: translationImage,
-        description: 'Muse headband',
-        featured: true
-    },
+    // {
+    //     name: 'Translation',
+    //     extensionURL: 'translate',
+    //     iconURL: translationImage,
+    //     description: 'Translate between languages',
+    //     featured: true
+    // },
+    // {
+    //     name: 'Muse',
+    //     extensionURL: 'muse',
+    //     iconURL: translationImage,
+    //     description: 'Muse headband',
+    //     featured: true
+    // },
     {
         name: 'Lego Wedo',
         extensionURL: 'wedo2',
