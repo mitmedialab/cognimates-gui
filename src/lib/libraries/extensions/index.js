@@ -5,7 +5,7 @@ import jiboImage from './Jibo_extension.png';
 import alexaImage from './Alexa_extension.png';
 import cognimateImage from './Cognimate_extension.png';
 import hueImage from './Hue_extension.png';
-import speechImage from './speech.png';
+import speechImage from './speech-ext-new.jpg';
 import cozmoImage from './Cozmo_extension.png';
 import ergoImage from './Ergo_extension.png';
 import sentimentImage from './Sentiment_extension.png';
