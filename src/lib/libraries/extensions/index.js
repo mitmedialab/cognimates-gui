@@ -141,13 +141,13 @@ export default [
     //     description: 'Translate between languages',
     //     featured: true
     // },
-    // {
-    //     name: 'Muse',
-    //     extensionURL: 'muse',
-    //     iconURL: translationImage,
-    //     description: 'Muse headband',
-    //     featured: true
-    // },
+     {
+         name: 'Muse',
+         extensionURL: 'muse',
+         iconURL: translationImage,
+         description: 'Muse headband',
+         featured: true
+     },
     {
         name: 'Lego Wedo',
         extensionURL: 'wedo2',
