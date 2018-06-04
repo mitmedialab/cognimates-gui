@@ -16,6 +16,7 @@ import toolboxReducer from './toolbox';
 import vmReducer from './vm';
 import stageSizeReducer from './stage-size';
 import {ScratchPaintReducer} from 'scratch-paint';
+import bluetoothReducer from './bluetooth';
 
 export default combineReducers({
     blockDrag: blockDragReducer,
@@ -34,5 +35,6 @@ export default combineReducers({
     targets: targetReducer,
     toolbox: toolboxReducer,
     vm: vmReducer,
-    scratchPaint: ScratchPaintReducer
+    scratchPaint: ScratchPaintReducer,
+    bluetooth: bluetoothReducer
 });
