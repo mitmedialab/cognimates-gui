@@ -22,7 +22,7 @@ import boostImage from './boost.png';
 import styleImage from './Clarifai_extension.png';
 import wemoImage from './wemo_ext.png';
 import twitterImage from './twitter_ext.jpg';
-import translationImage from './Translation_extension.png';
+import translationImage from './Muse.jpg';
 
 export default [
     {
