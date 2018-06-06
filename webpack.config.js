@@ -73,6 +73,7 @@ module.exports = [
     // to run editor examples
     defaultsDeep({}, base, {
         entry: {
+            entry: ['babel-polyfill'],
             lib: ['react', 'react-dom'],
             gui: './src/playground/index.jsx',
             blocksonly: './src/playground/blocks-only.jsx',

@@ -24,6 +24,8 @@ import {
     editMenuOpen
 } from '../../reducers/menus';
 
+import {bluetoothConnect} from '../../reducers/bluetooth';
+
 import styles from './menu-bar.css';
 
 import mystuffIcon from './icon--mystuff.png';
@@ -32,6 +34,8 @@ import profileIcon from './icon--profile.png';
 import communityIcon from './icon--see-community.svg';
 import dropdownCaret from '../language-selector/dropdown-caret.svg';
 import scratchLogo from './scratch-logo.svg';
+import bluetoothIcon from './bluetooth.svg';
+import indicatorIcon from './indicator.svg'
 
 import helpIcon from './icon--help.svg';
 
@@ -301,17 +305,21 @@ const MenuBar = props => (
         </div>*/}
 
         <div className={styles.accountInfoWrapper}>
-        {/*
+        {
             <div
-                aria-label="How-to Library"
+                aria-label="Connect to Bluetooth"
                 className={classNames(styles.menuBarItem, styles.hoverable)}
-                onClick={props.onOpenTipLibrary}
+                onClick={props.onBluetoothConnect}
             >
                 <img
-                    className={styles.helpIcon}
-                    src={helpIcon}
+                    className={styles.indicatorIcon}
+                    src={indicatorIcon}
                 />
-        </div>*/}
+                <img
+                    className={styles.bluetoothIcon}
+                    src={bluetoothIcon}
+                />
+        </div>}
             <MenuBarItemTooltip id="mystuff">
                 {/*
                 <div
@@ -338,7 +346,8 @@ MenuBar.propTypes = {
     onClickFile: PropTypes.func,
     onOpenTipLibrary: PropTypes.func,
     onRequestCloseEdit: PropTypes.func,
-    onRequestCloseFile: PropTypes.func
+    onRequestCloseFile: PropTypes.func,
+    onBluetoothConnect: PropTypes.func
 };
 
 const mapStateToProps = state => ({
@@ -351,7 +360,8 @@ const mapDispatchToProps = dispatch => ({
     onClickFile: () => dispatch(openFileMenu()),
     onRequestCloseFile: () => dispatch(closeFileMenu()),
     onClickEdit: () => dispatch(openEditMenu()),
-    onRequestCloseEdit: () => dispatch(closeEditMenu())
+    onRequestCloseEdit: () => dispatch(closeEditMenu()),
+    onBluetoothConnect: () =>dispatch(bluetoothConnect())
 });
 
 export default connect(
