@@ -149,6 +149,13 @@ export default [
     //     featured: true
     // },
     {
+        name: 'Video',
+        extensionURL: 'videoExtension',
+        iconURL: videoImage,
+        description: 'Control the video feed',
+        featured: true
+    },
+    {
         name: 'Lego Wedo',
         extensionURL: 'wedo2',
         iconURL: wedoImage,
