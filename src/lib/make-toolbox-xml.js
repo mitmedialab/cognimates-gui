@@ -267,6 +267,20 @@ const sound = function (isStage, targetId) {
                 <shadow type="sound_sounds_menu"/>
             </value>
         </block>
+        <block id="${targetId}_sound_setstyle" type="sound_setstyle">
+            <value name="SOUND_MENU">
+                <shadow type="sound_sounds_menu"/>
+            </value>
+        </block>
+        <block id="${targetId}_sound_setsong" type="sound_setsong">
+            <value name="SOUND_MENU">
+                <shadow type="sound_sounds_menu"/>
+            </value>
+        </block>
+        <block type="sound_mixsong"/>
+        ${blockSeparator}
+        <block type="sound_opensocket"/>
+        ${blockSeparator}
         <block id="${targetId}_sound_playuntildone" type="sound_playuntildone">
             <value name="SOUND_MENU">
                 <shadow type="sound_sounds_menu"/>
