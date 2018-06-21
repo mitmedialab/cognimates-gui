@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 
 import analytics from '../lib/analytics';
 import GUI from '../containers/gui.jsx';
+import EXTENSIONS from '../containers/extension-library.jsx'
 
 import styles from './index.css';
 
