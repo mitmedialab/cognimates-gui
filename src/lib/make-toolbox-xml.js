@@ -182,16 +182,11 @@ const looks = function (isStage, targetId) {
                     <shadow type="looks_backdrops"/>
                 </value>
             </block>
-            <block type="looks_set_style">
-                <value name="PRESETS"/>
-            </block>
-            <block type="looks_set_image">
+            <block type="looks_setImageEffect">
                 <value name="BACKDROP">
                     <shadow type="looks_backdrops"/>
                 </value>
             </block>
-            <block type="looks_connect"/>
-            <block type="looks_remix"/>
             <block type="looks_switchbackdroptoandwait">
                 <value name="BACKDROP">
                     <shadow type="looks_backdrops"/>
