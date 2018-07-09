@@ -1,0 +1,37 @@
+@import "../../css/units.css";
+@import "../../css/colors.css";
+
+.blocks :global(.injectionDiv){
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid $ui-black-transparent;
+    border-top-right-radius: $space;
+}
+
+.blocks :global(.blocklyMainBackground) {
+    stroke: none;
+}
+
+.blocks :global(.blocklyToolboxDiv) {
+    border-right: 1px solid $ui-black-transparent;
+    border-bottom: 1px solid $ui-black-transparent;
+    box-sizing: content-box;
+    height: calc(100% - 3.25rem) !important;
+}
+
+.blocks :global(.blocklyFlyout) {
+    border-right: 1px solid $ui-black-transparent;
+    box-sizing: content-box;
+}
+
+/*
+    Shrink category font to fit "My Blocks" for now.
+    Probably will need different solutions for language support later, so
+    make the change here instead of in scratch-blocks.
+*/
+.blocks :global(.scratchCategoryMenuItemLabel) {
+    font-size: 0.65rem;
+}
