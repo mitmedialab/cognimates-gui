@@ -1,7 +1,7 @@
 var GUI =
 webpackJsonpGUI([3],{
 
-/***/ 690:
+/***/ 766:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15,17 +15,17 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(15);
+var _reactDom = __webpack_require__(16);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _reactRedux = __webpack_require__(8);
 
-var _controls = __webpack_require__(71);
+var _controls = __webpack_require__(77);
 
 var _controls2 = _interopRequireDefault(_controls);
 
-var _stage = __webpack_require__(165);
+var _stage = __webpack_require__(181);
 
 var _stage2 = _interopRequireDefault(_stage);
 
@@ -33,11 +33,11 @@ var _box = __webpack_require__(7);
 
 var _box2 = _interopRequireDefault(_box);
 
-var _gui = __webpack_require__(36);
+var _gui = __webpack_require__(40);
 
 var _gui2 = _interopRequireDefault(_gui);
 
-var _projectLoaderHoc = __webpack_require__(58);
+var _projectLoaderHoc = __webpack_require__(63);
 
 var _projectLoaderHoc2 = _interopRequireDefault(_projectLoaderHoc);
 
@@ -144,5 +144,5 @@ _reactDom2.default.render(_react2.default.createElement(App, null), appTarget);
 
 /***/ })
 
-},[690]);
+},[766]);
 //# sourceMappingURL=compatibilitytesting.js.map

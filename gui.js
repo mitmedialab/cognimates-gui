@@ -1,7 +1,7 @@
 var GUI =
 webpackJsonpGUI([0],{
 
-/***/ 211:
+/***/ 227:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9,29 +9,33 @@ webpackJsonpGUI([0],{
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-__webpack_require__(212);
+__webpack_require__(228);
 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(15);
+var _reactDom = __webpack_require__(16);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactModal = __webpack_require__(22);
+var _reactModal = __webpack_require__(32);
 
 var _reactModal2 = _interopRequireDefault(_reactModal);
 
-var _analytics = __webpack_require__(13);
+var _analytics = __webpack_require__(12);
 
 var _analytics2 = _interopRequireDefault(_analytics);
 
-var _gui = __webpack_require__(36);
+var _gui = __webpack_require__(40);
 
 var _gui2 = _interopRequireDefault(_gui);
 
-var _index = __webpack_require__(685);
+var _extensionLibrary = __webpack_require__(143);
+
+var _extensionLibrary2 = _interopRequireDefault(_extensionLibrary);
+
+var _index = __webpack_require__(761);
 
 var _index2 = _interopRequireDefault(_index);
 
@@ -57,18 +61,18 @@ _reactDom2.default.render(_react2.default.createElement(_gui2.default, null), ap
 
 /***/ }),
 
-/***/ 212:
+/***/ 228:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(213).polyfill();
+__webpack_require__(229).polyfill();
 
 
 /***/ }),
 
-/***/ 213:
+/***/ 229:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -122,11 +126,11 @@ module.exports = {
 
 /***/ }),
 
-/***/ 685:
+/***/ 761:
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(686);
+var content = __webpack_require__(762);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -173,7 +177,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 686:
+/***/ 762:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -190,5 +194,5 @@ exports.locals = {
 
 /***/ })
 
-},[211]);
+},[227]);
 //# sourceMappingURL=gui.js.map

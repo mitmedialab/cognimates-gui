@@ -1,7 +1,7 @@
 var GUI =
 webpackJsonpGUI([1],{
 
-/***/ 691:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13,7 +13,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(15);
+var _reactDom = __webpack_require__(16);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -21,11 +21,11 @@ var _box = __webpack_require__(7);
 
 var _box2 = _interopRequireDefault(_box);
 
-var _gui = __webpack_require__(36);
+var _gui = __webpack_require__(40);
 
 var _gui2 = _interopRequireDefault(_gui);
 
-var _player = __webpack_require__(692);
+var _player = __webpack_require__(768);
 
 var _player2 = _interopRequireDefault(_player);
 
@@ -56,11 +56,11 @@ _reactDom2.default.render(_react2.default.createElement(Player, null), appTarget
 
 /***/ }),
 
-/***/ 692:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(693);
+var content = __webpack_require__(769);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -107,7 +107,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 693:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -125,5 +125,5 @@ exports.locals = {
 
 /***/ })
 
-},[691]);
+},[767]);
 //# sourceMappingURL=player.js.map
