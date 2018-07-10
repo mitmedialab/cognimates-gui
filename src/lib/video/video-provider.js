@@ -306,6 +306,12 @@ class VideoProvider {
         let imageDataURL = hidden_canvas.toDataURL('/png');
         return imageDataURL;
     }
+
+    switchSource(vidSource){
+        let constraints = this._track.getConstraints();
+        constraints.deviceId = vidSource;
+        this._track.applyConstraints(constraints);
+    }
 }
 
 export default VideoProvider;
