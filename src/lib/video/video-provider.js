@@ -309,7 +309,8 @@ class VideoProvider {
 
     switchSource(vidSource){
         let constraints = this._track.getConstraints();
-        constraints.deviceId = vidSource;
+        constraints.deviceId = {exact: vidSource};
+        console.log(constraints);
         this._track.applyConstraints(constraints);
     }
 }
