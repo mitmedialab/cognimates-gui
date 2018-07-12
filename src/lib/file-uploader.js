@@ -1,6 +1,8 @@
 import {importBitmap} from 'scratch-svg-renderer';
 import log from './log.js';
+const request = require('request');
 
+let postURL = "http://localhost:5000/styletransfer"
 /**
  * Extract the file name given a string of the form fileName + ext
  * @param {string} nameExt File name + extension (e.g. 'my_image.png')
@@ -89,6 +91,21 @@ const cacheAsset = function (storage, fileName, assetType, dataFormat, data) {
  * adding the costume to the VM and handling other UI flow that should come after adding the costume
  */
 const costumeUpload = function (fileData, fileType, costumeName, storage, handleCostume) {
+    var bytes = new Uint8Array(fileData);
+    let len = bytes.byteLength;
+    var binary = '';
+    for (let i = 0; i < len; i++) {
+        binary += String.fromCharCode(bytes[i]);
+    }
+    var url = window.btoa(binary);
+    // uploaded_image.onload = function() {
+    //     ctx.putImageData(uploaded_image, 0, 0);
+    // }
+    // uploaded_image.src = imageUrl
+    // request.post({
+    //     url: postURL,
+    //     form: {image_data: url}
+    //     });
     let costumeFormat = null;
     let assetType = null;
     switch (fileType) {
