@@ -199,19 +199,15 @@ class VideoProvider {
      * @private
      * @return {Promise} When video has been received, rejected if video is not received
      */
-    _setupVideo () {
+    _setupVideo (constraints = {width: {min: 480, ideal: 640}, height: {min: 360, ideal: 480}})
+    {
         // We cache the result of this setup so that we can only ever have a single
         // video/getUserMedia request happen at a time.
         if (this._singleSetup) {
             return this._singleSetup;
         }
 
-        this._singleSetup = requestVideoStream({
-            // width: {min: 480, ideal: 640},
-            // height: {min: 360, ideal: 480}
-            width: {ideal: 640},
-            height: {ideal: 480}
-        })
+        this._singleSetup = requestVideoStream(constraints)
             .then(stream => {
                 this._video = document.createElement('video');
 
@@ -232,7 +228,7 @@ class VideoProvider {
             })
             .catch(error => {
                 this._singleSetup = null;
-                this.onError(error);
+                this.onError(error);;
             });
 
         return this._singleSetup;
@@ -310,10 +306,15 @@ class VideoProvider {
     }
 
     switchSource(vidSource){
-        let constraints = this._track.getConstraints();
-        constraints.deviceId = {exact: vidSource};
-        console.log(constraints);
-        this._track.applyConstraints(constraints);
+        console.log(vidSource);
+        let constraints;
+        if(vidSource === 'USB'){
+            constraints = {width: {exact: 320}, height: {exact: 240}};
+        } 
+        this.disableVideo();
+        this._teardown();
+        this._setupVideo(constraints);
+        console.log('here');
     }
 }
 

@@ -15,6 +15,7 @@ const requestVideoStream = videoDesc => {
             audio: false,
             video: videoDesc
         });
+        console.log(videoDesc);
         requestStack.push(streamPromise);
     } else if (requestStack.length > 0) {
         streamPromise = requestStack[0];
