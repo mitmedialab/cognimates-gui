@@ -1,6 +1,6 @@
 import {importBitmap} from 'scratch-svg-renderer';
 import log from './log.js';
-const request = require('request');
+const http = require('http');
 
 let postURL = "http://localhost:5000/styletransfer"
 /**
@@ -102,10 +102,23 @@ const costumeUpload = function (fileData, fileType, costumeName, storage, handle
     //     ctx.putImageData(uploaded_image, 0, 0);
     // }
     // uploaded_image.src = imageUrl
-    // request.post({
-    //     url: postURL,
-    //     form: {image_data: url}
-    //     });
+    var options = {
+        host: "localhost",
+        port: "5000",
+        path: "/upload",
+        method: "POST"
+    };
+    var req = http.request(options, function(res){
+        var responseString = "";
+        res.on("data", function(data){
+            responseString += data;
+        })
+        res.on("end", function(){
+            console.log(responseString);
+        })
+    });
+    req.write(url + "," + costumeName);
+    req.end();
     let costumeFormat = null;
     let assetType = null;
     switch (fileType) {
