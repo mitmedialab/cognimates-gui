@@ -35,6 +35,13 @@ class VideoProvider {
          * Stores some canvas/frame data per resolution/mirror states
          */
         this._workspace = [];
+
+        this.resolutions = {  
+            'qvga': {width: {exact: 320}, height: {exact: 240}}, 
+            'vga':{width: {exact: 640}, height: {exact: 480}},
+            'hd': {width: {exact: 1280}, height: {exact: 720}},
+            'default': {width: {min: 480, ideal: 640}, height: {min: 360, ideal: 480}}  
+        }
     }
 
     static get FORMAT_IMAGE_DATA () {
@@ -308,13 +315,10 @@ class VideoProvider {
     switchSource(vidSource){
         console.log(vidSource);
         let constraints;
-        if(vidSource === 'USB'){
-            constraints = {width: {exact: 320}, height: {exact: 240}};
-        } 
+        constraints = this.resolutions[vidSource];
         this.disableVideo();
         this._teardown();
         this._setupVideo(constraints);
-        console.log('here');
     }
 }
 
