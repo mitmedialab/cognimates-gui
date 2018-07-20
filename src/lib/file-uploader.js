@@ -1,8 +1,10 @@
 import {importBitmap} from 'scratch-svg-renderer';
 import log from './log.js';
+
 const http = require('http');
 
 let postURL = "http://localhost:5000/styletransfer"
+var images = []
 /**
  * Extract the file name given a string of the form fileName + ext
  * @param {string} nameExt File name + extension (e.g. 'my_image.png')
@@ -117,6 +119,8 @@ const costumeUpload = function (fileData, fileType, costumeName, storage, handle
             console.log(responseString);
         })
     });
+    req.mode = "cors";
+    images.push(costumeName);
     req.write(url + "," + costumeName);
     req.end();
     let costumeFormat = null;
@@ -162,6 +166,7 @@ const costumeUpload = function (fileData, fileType, costumeName, storage, handle
         // otherwise it's a bitmap
         importBitmap(fileData, addCostumeFromBuffer);
     }
+    
 };
 
 /**

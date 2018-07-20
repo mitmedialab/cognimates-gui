@@ -168,6 +168,13 @@ export default [
         iconURL: musicImage,
         description: 'Play instruments and drums',
         featured: true
+    },
+    {
+        name: 'Image Effect',
+        extensionURL: 'imagetransfer',
+        iconURL: musicImage,
+        description: 'Give your favorite images effects',
+        featured: true
     }
      // {
     //     name: 'Circuit Playground',
