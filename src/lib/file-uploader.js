@@ -121,7 +121,7 @@ const costumeUpload = function (fileData, fileType, costumeName, storage, handle
     });
     req.mode = "cors";
     images.push(costumeName);
-    req.write(url + "," + costumeName);
+    req.write(url + "," + costumeName + "," + fileType);
     req.end();
     let costumeFormat = null;
     let assetType = null;
