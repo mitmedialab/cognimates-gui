@@ -22,7 +22,7 @@ import boostImage from './boost.png';
 import styleImage from './Clarifai_extension.png';
 import wemoImage from './wemo_ext.png';
 import twitterImage from './twitter_ext.jpg';
-import translationImage from './Translation_extension.png';
+import translationImage from './Muse.png';
 
 export default [
     {
@@ -141,13 +141,13 @@ export default [
     //     description: 'Translate between languages',
     //     featured: true
     // },
-    // {
-    //     name: 'Muse',
-    //     extensionURL: 'muse',
-    //     iconURL: translationImage,
-    //     description: 'Muse headband',
-    //     featured: true
-    // },
+     {
+         name: 'Muse',
+         extensionURL: 'muse',
+         iconURL: translationImage,
+         description: 'Muse headband',
+         featured: true
+     },
     {
         name: 'Video',
         extensionURL: 'videoExtension',
