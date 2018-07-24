@@ -182,11 +182,6 @@ const looks = function (isStage, targetId) {
                     <shadow type="looks_backdrops"/>
                 </value>
             </block>
-            <block type="looks_setImageEffect">
-                <value name="BACKDROP">
-                    <shadow type="looks_backdrops"/>
-                </value>
-            </block>
             <block type="looks_switchbackdroptoandwait">
                 <value name="BACKDROP">
                     <shadow type="looks_backdrops"/>
@@ -267,21 +262,6 @@ const looks = function (isStage, targetId) {
 const sound = function (isStage, targetId) {
     return `
     <category name="Sound" colour="#D65CD6" secondaryColour="#BD42BD">
-        <block id="${targetId}_sound_play" type="sound_play">
-            <value name="SOUND_MENU">
-                <shadow type="sound_sounds_menu"/>
-            </value>
-        </block>
-        <block id="${targetId}_sound_mixsong" type="sound_mixsong">
-            <value name="SOUND_MENU">
-                <shadow type="sound_sounds_menu"/>
-            </value>
-            <value name="SOUND_MENU_TWO">
-                <shadow type="sound_sounds_menu"/>
-            </value>
-        </block>
-        ${blockSeparator}
-        <block type="sound_opensocket"/>
         ${blockSeparator}
         <block id="${targetId}_sound_playuntildone" type="sound_playuntildone">
             <value name="SOUND_MENU">
