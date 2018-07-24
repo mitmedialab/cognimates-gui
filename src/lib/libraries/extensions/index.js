@@ -23,6 +23,7 @@ import styleImage from './Clarifai_extension.png';
 import wemoImage from './wemo_ext.png';
 import twitterImage from './twitter_ext.jpg';
 import translationImage from './Muse.png';
+import imageTransferImage from './ImageTransfer_extension.png'
 
 export default [
     {
@@ -172,7 +173,7 @@ export default [
     {
         name: 'Image Effect',
         extensionURL: 'imagetransfer',
-        iconURL: musicImage,
+        iconURL: imageTransferImage,
         description: 'Give your favorite images effects',
         featured: true
     }
