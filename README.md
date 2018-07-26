@@ -12,4 +12,4 @@ Cognimates is platform where parents and children (7-10 years old) participate i
 * Tammy Qiu - undergraduate student BU, intern PRG
 
 
-Cognimates GUI is building on Scratch Gui: a set of React components that comprise the interface for creating and running Scratch 3.0 projects [Scratch Gui](https://github.com/LLK/scratch-gui/)provided as open source library by Lifelong Kindergarten Group.
+Cognimates GUI is building on Scratch Gui: a set of React components that comprise the interface for creating and running Scratch 3.0 projects [Scratch Gui](https://github.com/LLK/scratch-gui/) provided as open source library by Lifelong Kindergarten Group.
