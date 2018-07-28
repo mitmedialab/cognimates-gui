@@ -2,14 +2,14 @@
   "name": "scratch-gui",
   "version": "0.1.0",
   "description": "GraphicaL User Interface for creating and running Scratch 3.0 projects",
-  "main": "./src/index.js",
+  "main": "./dist/scratch-gui.js",
   "scripts": {
     "build": "npm run clean && webpack --progress --colors --bail",
-    "clean": "rimraf ./build && mkdirp build",
+    "clean": "rimraf ./build && mkdirp build && rimraf ./dist && mkdirp dist",
     "deploy": "touch build/.nojekyll && gh-pages -t -d build -m \"Build for $(git log --pretty=format:%H -n1)\"",
     "i18n:src": "babel src > tmp.js && rimraf tmp.js && build-i18n-src ./translations/messages/ ./translations/",
     "start": "webpack-dev-server",
-    "test": "npm run test:lint && npm run test:unit && NODE_ENV=production npm run build && npm run test:integration",
+    "test": "npm run test:lint && npm run test:unit && npm run build && npm run test:integration",
     "test:integration": "jest --runInBand test[\\\\/]integration",
     "test:lint": "eslint . --ext .js,.jsx",
     "test:unit": "jest test[\\\\/]unit",
@@ -27,7 +27,11 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "scratch-vm": "github:kchadha/scratch-vm#sb3-validation-config"
+=======
+    "babel-polyfill": "^6.23.0"
+>>>>>>> 7025907ad83168089e307b321a4d0f81bb740dcf
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
@@ -40,7 +44,7 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.22.0",
     "buffer-loader": "0.0.1",
-    "chromedriver": "2.36.0",
+    "chromedriver": "2.38.2",
     "classnames": "2.2.5",
     "copy-webpack-plugin": "^4.3.0",
     "css-loader": "^0.28.7",
@@ -91,13 +95,10 @@
     "redux-mock-store": "^1.2.3",
     "redux-throttle": "0.1.1",
     "rimraf": "^2.6.1",
-    "scratch-audio": "0.1.0-prerelease.1516198804",
-    "scratch-blocks": "0.1.0-prerelease.1521811349",
+    "scratch-audio": "0.1.0-prerelease.1523977528",
     "scratch-l10n": "2.0.20180108132626",
-    "scratch-paint": "0.2.0-prerelease.20180320181154",
-    "scratch-render": "0.1.0-prerelease.1521830325",
-    "scratch-storage": "0.4.0",
-    "scratch-vm": "0.1.0-prerelease.1522071980-prerelease.1522072000",
+    "scratch-paint": "0.2.0-prerelease.20180504180528",
+    "scratch-storage": "0.4.1",
     "selenium-webdriver": "3.6.0",
     "startaudiocontext": "1.2.1",
     "style-loader": "^0.20.0",
@@ -105,7 +106,7 @@
     "text-encoding": "0.6.4",
     "wav-encoder": "1.3.0",
     "web-audio-test-api": "^0.5.2",
-    "webpack": "^3.6.0",
+    "webpack": "^3.12.0",
     "webpack-dev-server": "^2.9.7",
     "xhr": "2.4.1"
   },

@@ -12,12 +12,14 @@ import Prompt from './prompt.jsx';
 import BlocksComponent from '../components/blocks/blocks.jsx';
 import ExtensionLibrary from './extension-library.jsx';
 import CustomProcedures from './custom-procedures.jsx';
+import errorBoundaryHOC from '../lib/error-boundary-hoc.jsx';
 
 import {connect} from 'react-redux';
 import {updateToolbox} from '../reducers/toolbox';
 import {activateColorPicker} from '../reducers/color-picker';
 import {closeExtensionLibrary} from '../reducers/modals';
 import {activateCustomProcedures, deactivateCustomProcedures} from '../reducers/custom-procedures';
+// const toolboxXML = makeToolboxXML(target ? target.isStage : true, target && target.id, dynamicBlocksXML);
 
 const addFunctionListener = (object, property, callback) => {
     const oldFn = object[property];
@@ -59,6 +61,21 @@ class Blocks extends React.Component {
         };
         this.onTargetsUpdate = debounce(this.onTargetsUpdate, 100);
     }
+    handleExtensionAdded (blocksInfo) {
+        this.ScratchBlocks.defineBlocksWithJsonArray(blocksInfo.map(blockInfo => blockInfo.json));
+        const dynamicBlocksXML = this.props.vm.runtime.getBlocksXML();
+        // If there's no current editing target, try to use the stage instead.
+        // However, if the extension is added during project load there might not yet be any targets at all.
+        // If that's the case, provide a fake stage object and prepare the toolbox as if the stage were selected.
+        const target =
+            this.props.vm.runtime.getEditingTarget() ||
+            this.props.vm.runtime.getTargetForStage() || {
+                isStage: true,
+                id: '' // fake stage has no ID
+            };
+        const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML);
+        this.props.updateToolboxState(toolboxXML);
+    }
     componentDidMount () {
         this.ScratchBlocks.FieldColourSlider.activateEyedropper_ = this.props.onActivateColorPicker;
         this.ScratchBlocks.Procedures.externalProcedureDefCallback = this.props.onActivateCustomProcedures;
@@ -99,7 +116,12 @@ class Blocks extends React.Component {
             const offset = this.workspace.toolbox_.getCategoryScrollOffset();
             this.workspace.updateToolbox(this.props.toolboxXML);
             const currentCategoryPos = this.workspace.toolbox_.getCategoryPositionByName(categoryName);
-            this.workspace.toolbox_.setFlyoutScrollPos(currentCategoryPos + offset);
+            const currentCategoryLen = this.workspace.toolbox_.getCategoryLengthByName(categoryName);
+            if (offset < currentCategoryLen) {
+                this.workspace.toolbox_.setFlyoutScrollPos(currentCategoryPos + offset);
+            } else {
+                this.workspace.toolbox_.setFlyoutScrollPos(currentCategoryPos);
+            }
         }
         if (this.props.isVisible === prevProps.isVisible) {
             return;
@@ -221,11 +243,18 @@ class Blocks extends React.Component {
         }
     }
     handleExtensionAdded (blocksInfo) {
-        this.ScratchBlocks.defineBlocksWithJsonArray(blocksInfo.map(blockInfo => blockInfo.json));
-        const dynamicBlocksXML = this.props.vm.runtime.getBlocksXML();
-        const target = this.props.vm.editingTarget;
-        const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML);
-        this.props.updateToolboxState(toolboxXML);
+        // select JSON from each block info object then reject the pseudo-blocks which don't have JSON, like separators
+        // this actually defines blocks and MUST run regardless of the UI state
+        this.ScratchBlocks.defineBlocksWithJsonArray(blocksInfo.map(blockInfo => blockInfo.json).filter(x => x));
+
+        // update the toolbox view: this can be skipped if we're not looking at a target, etc.
+        const runtime = this.props.vm.runtime;
+        const target = runtime.getEditingTarget() || runtime.getTargetForStage();
+        if (target) {
+            const dynamicBlocksXML = runtime.getBlocksXML();
+            const toolboxXML = makeToolboxXML(target.isStage, target.id, dynamicBlocksXML);
+            this.props.updateToolboxState(toolboxXML);
+        }
     }
     handleBlocksInfoUpdate (blocksInfo) {
         // @todo Later we should replace this to avoid all the warnings from redefining blocks.
@@ -245,6 +274,7 @@ class Blocks extends React.Component {
             optVarType !== this.ScratchBlocks.BROADCAST_MESSAGE_VARIABLE_TYPE;
         this.setState(p);
     }
+    
     handlePromptCallback (data) {
         this.state.prompt.callback(data);
         this.handlePromptClose();
@@ -403,7 +433,9 @@ const mapDispatchToProps = dispatch => ({
     }
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Blocks);
+export default errorBoundaryHOC('Blocks')(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps
+    )(Blocks)
+);

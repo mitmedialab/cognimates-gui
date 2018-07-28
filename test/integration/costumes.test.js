@@ -29,8 +29,8 @@ describe('Working with costumes', () => {
         await loadUri(uri);
         await clickXpath('//button[@title="tryit"]');
         await clickText('Costumes');
-        await clickXpath('//button[@aria-label="Costume Library"]');
-        const el = await findByXpath("//input[@placeholder='what are you looking for?']");
+        await clickXpath('//button[@aria-label="Choose a Costume"]');
+        const el = await findByXpath("//input[@placeholder='Search']");
         await el.sendKeys('abb');
         await clickText('Abby-a'); // Should close the modal, then click the costumes in the selector
         await findByXpath("//input[@value='Abby-a']"); // Should show editor for new costume
@@ -57,10 +57,34 @@ describe('Working with costumes', () => {
     test('Adding a backdrop', async () => {
         await loadUri(uri);
         await clickXpath('//button[@title="tryit"]');
-        await clickXpath('//button[@aria-label="Backdrop Library"]');
-        const el = await findByXpath("//input[@placeholder='what are you looking for?']");
+        await clickXpath('//button[@aria-label="Choose a Backdrop"]');
+        const el = await findByXpath("//input[@placeholder='Search']");
         await el.sendKeys('blue');
         await clickText('Blue Sky'); // Should close the modal
+        const logs = await getLogs();
+        await expect(logs).toEqual([]);
+    });
+
+    test('Converting bitmap/vector in paint editor', async () => {
+        await loadUri(uri);
+        await clickXpath('//button[@title="tryit"]');
+        await clickText('Costumes');
+
+        // Convert the first costume to bitmap.
+        await clickText('costume1', scope.costumesTab);
+        await clickText('Convert to Bitmap', scope.costumesTab);
+
+        // Make sure mode switches back to vector for vector costume.
+        await clickText('costume2', scope.costumesTab);
+        await clickText('Convert to Bitmap', scope.costumesTab);
+
+        // Make sure bitmap is saved by switching back and converting to vector.
+        await clickText('Sounds');
+        await clickText('Costumes');
+        await clickText('Convert to Vector', scope.costumesTab); // costume2
+        await clickText('costume1', scope.costumesTab);
+        await clickText('Convert to Vector', scope.costumesTab);
+
         const logs = await getLogs();
         await expect(logs).toEqual([]);
     });

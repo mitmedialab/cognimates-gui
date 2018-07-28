@@ -8,21 +8,41 @@
     right: 0;
     bottom: 0;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, .75);
+    background-color: $ui-modal-overlay;
 }
 
 .modal-content {
     margin: 100px auto;
     outline: none;
-    border: 3px solid rgb(126, 133, 151);
+    border: 4px solid $ui-white-transparent;
     padding: 0;
     border-radius: $space;
     user-select: none;
 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #5d647a;
+    color: $text-primary;
     overflow: hidden;
 }
+
+.modal-content.full-screen {
+    position: absolute;
+
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: 'touch';
+    user-select: none;
+
+    background-color: $ui-secondary;
+
+    /* Default modal resets */
+    margin: 0;
+    border: none;
+    border-radius: 0;
+}
+
 
 /*
     Modal header has 3 items:
@@ -54,7 +74,7 @@ $sides: 20rem;
     align-items: center;
     padding: 1rem;
     text-decoration: none;
-    color: white;
+    color: $ui-white;
     user-select: none;
 }
 
@@ -71,9 +91,25 @@ $sides: 20rem;
     user-select: none;
     letter-spacing: 0.4px;
     cursor: default;
+    margin: 0 -$sides 0 0;
+}
+
+.full-screen .header-item-title {
+    margin: 0 0 0 -$sides;
 }
 
 .header-item-close {
     flex-basis: $sides;
     justify-content: flex-end;
+    z-index: 1;
+}
+
+.full-screen .header-item-close {
+    order: -1;
+    justify-content: flex-start;
+}
+
+.back-button {
+    font-weight: normal;
+    padding-left: 0;
 }
