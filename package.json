@@ -27,11 +27,7 @@
     "react-dom": "^16.0.0"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "scratch-vm": "github:kchadha/scratch-vm#sb3-validation-config"
-=======
     "babel-polyfill": "^6.23.0"
->>>>>>> 7025907ad83168089e307b321a4d0f81bb740dcf
   },
   "devDependencies": {
     "autoprefixer": "^8.1.0",
